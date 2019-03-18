@@ -1,4 +1,4 @@
-### I understand only English ->
+### I understand only English [->](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#description-modules-and-custom-scripts-n-english-language) 
 # Описание скриптов и модулей на русском языке
 
 ## Паблик скрипты
