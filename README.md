@@ -36,7 +36,7 @@
 
 ------
 ### Я понимаю русский язык [->](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#описание-скриптов-и-модулей-на-русском-языке)
-# Description modules and custom scripts n English language
+# Description modules and custom scripts in English language
 
 ## Public custom scripts
 ### 1. [mod-bg-reward](https://github.com/azerothcore/mod-bg-reward)
