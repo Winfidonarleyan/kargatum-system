@@ -35,7 +35,7 @@
 Один из популярнейших скриптов, который меняет фракцию игрока на поле боя, которая в меньшенстве.
 
 ------
-### Я понимаю русский язык ->
+### Я понимаю русский язык [->](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#описание-скриптов-и-модулей-на-русском-языке)
 # Description modules and custom scripts n English language
 
 ## Паблик скрипты
