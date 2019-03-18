@@ -4,13 +4,13 @@
 - 1.2. [mod-auto-revive] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#2-mod-auto-revive) / [English description](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#2-mod-auto-revive-1)
 - 1.3. [mod-buff-command] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#3-mod-buff-command) / [English description](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#3-mod-buff-command-1)
 - 1.4. [mod-notify-muted] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#4-mod-notify-muted) / [English description](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#4-mod-notify-muted-1)
-- 1.5. [mod-online-reward] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#5-mod-online-reward-скоро) / [English description](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#5-mod-online-reward-скоро-1)
-- 1.6. [mod-level-reward] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#6-mod-level-reward-скоро) / [English description](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#6-mod-level-reward-скоро-1)
-- 1.7. [mod-icons-channel] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#7-mod-icons-channel-скоро) / [English description](
-- 1.8. [mod-player-login] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#8-mod-player-login-скоро) / [English description](
-- 1.9. [mod-spell-duration] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#9-mod-spell-duration-скоро) / [English description](
+- 1.5. [mod-online-reward] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#5-mod-online-reward-скоро) / [English description](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#5-mod-online-reward-coming-soon)
+- 1.6. [mod-level-reward] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#6-mod-level-reward-скоро) / [English description](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#6-mod-level-reward-coming-soon)
+- 1.7. [mod-icons-channel] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#7-mod-icons-channel-скоро) / [English description](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#7-mod-icons-channel-coming-soon)
+- 1.8. [mod-player-login] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#8-mod-player-login-скоро) / [English description](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#8-mod-player-login-coming-soon)
+- 1.9. [mod-spell-duration] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#9-mod-spell-duration-скоро) / [English description](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#8-mod-spell-duration-coming-soon)
 2. Приват скрипты / Private scripts
-- 2.1 [mod-crossfaction-bg] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#1-mod-crossfaction-bg) / [English description](
+- 2.1 [mod-crossfaction-bg] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#1-mod-crossfaction-bg) / [English description](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#1-mod-crossfaction-bg-coming-soon)
 
 ### I understand only English [->](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#description-modules-and-custom-scripts-n-english-language) 
 # Описание скриптов и модулей на русском языке
@@ -77,7 +77,7 @@ Display fraction incons in chat channels (for server common chat)
 ### 8. [mod-player-login] (Coming Soon...)
 Dosplay info at login in game world
 
-### 8. [mod-spell-duration] (Coming Soon...)
+### 9. [mod-spell-duration] (Coming Soon...)
 Modifing duration spells
 
 ## Private scripts
