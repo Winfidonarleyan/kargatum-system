@@ -1,4 +1,4 @@
-### 
+### I understand only English ->
 
 # Кастомные скрипты и модули для ядра Azerothcore
 
