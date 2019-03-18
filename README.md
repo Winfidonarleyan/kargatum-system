@@ -2,7 +2,7 @@
 
 # Кастомные скрипты и модули для ядра Azerothcore
 
-## Паблик скприты
+## Паблик скрипты
 ### 1. [mod-bg-reward](https://github.com/azerothcore/mod-bg-reward)
 Выдача предметов в конце поле боя
 
