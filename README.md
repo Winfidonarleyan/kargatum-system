@@ -4,11 +4,11 @@
 - 1.2. [mod-auto-revive] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#2-mod-auto-revive)
 - 1.3. [mod-buff-command] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#3-mod-buff-command)
 - 1.4. [mod-notify-muted] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#4-mod-notify-muted)
-- 1.5. [mod-online-reward] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#5-mod-online-reward)
-- 1.6. [mod-level-reward] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#6-mod-level-reward)
-- 1.7. [mod-icons-channel] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#7-mod-icons-channel)
-- 1.8. [mod-player-login] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#8-mod-player-login)
-- 1.9. [mod-spell-duration] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#9-mod-spell-duration)
+- 1.5. [mod-online-reward] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#5-mod-online-reward-скоро)
+- 1.6. [mod-level-reward] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#6-mod-level-reward-скоро)
+- 1.7. [mod-icons-channel] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#7-mod-icons-channel-скоро)
+- 1.8. [mod-player-login] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#8-mod-player-login-скоро)
+- 1.9. [mod-spell-duration] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#9-mod-spell-duration-скоро)
 2. Приват скрипты / Private scripts
 - 2.1 [mod-crossfaction-bg] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#1-mod-crossfaction-bg)
 
