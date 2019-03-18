@@ -65,22 +65,22 @@ Add custom command `.buff` for self buff
 ### 4. [mod-notify-muted](https://github.com/azerothcore/mod-notify-muted)
 Notifies player (who wrote a private message) that his interlocutor can not talk (if his chat is not available)
 
-### 5. [mod-online-reward] (Скоро...)
+### 5. [mod-online-reward] (Coming Soon...)
 Reward players for online
 
-### 6. [mod-level-reward] (Скоро...)
+### 6. [mod-level-reward] (Coming Soon...)
 Reward players for level up
 
-### 7. [mod-icons-channel] (Скоро...)
+### 7. [mod-icons-channel] (Coming Soon...)
 Display fraction incons in chat channels (for server common chat)
 
-### 8. [mod-player-login] (Скоро...)
+### 8. [mod-player-login] (Coming Soon...)
 Dosplay info at login in game world
 
-### 8. [mod-spell-duration] (Скоро...)
+### 8. [mod-spell-duration] (Coming Soon...)
 Modifing duration spells
 
 ## Private scripts
 
-### 1. [mod-crossfaction-bg] (Скоро...)
+### 1. [mod-crossfaction-bg] (Coming Soon...)
 One of the most popular scripts that change the player's faction on the battlefield, which is in the minority.
