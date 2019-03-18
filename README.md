@@ -8,7 +8,7 @@
 - 1.6. [mod-level-reward] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#6-mod-level-reward-скоро) / [English description](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#6-mod-level-reward-coming-soon)
 - 1.7. [mod-icons-channel] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#7-mod-icons-channel-скоро) / [English description](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#7-mod-icons-channel-coming-soon)
 - 1.8. [mod-player-login] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#8-mod-player-login-скоро) / [English description](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#8-mod-player-login-coming-soon)
-- 1.9. [mod-spell-duration] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#9-mod-spell-duration-скоро) / [English description](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#8-mod-spell-duration-coming-soon)
+- 1.9. [mod-spell-duration] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#9-mod-spell-duration-скоро) / [English description](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#9-mod-spell-duration-coming-soon)
 2. Приват скрипты / Private scripts
 - 2.1 [mod-crossfaction-bg] - [Русское описание](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#1-mod-crossfaction-bg) / [English description](https://github.com/Winfidonarleyan/AzerothcoreScipts/blob/master/README.md#1-mod-crossfaction-bg-coming-soon)
 
