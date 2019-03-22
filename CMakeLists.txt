@@ -9,9 +9,6 @@ endif()
 
 if (NOT KARGATUMCORE)
 
-# set default buildoptions and print them
-include(cmake/conf/config.cmake)
-
 message("-> Loading Kargatum System")
 
 # Set dir
