@@ -21,6 +21,7 @@ void KargatumConfig::LoadConfig()
     sLog->outString("Загрузка кастомной конфигурации");
 #else
     sLog->outString("Loading custom configuration");
+#endif
     
     // mod-anti-advertisment
     m_bool[conf::ANTIAD_ENABLE]					                = sConfigMgr->GetBoolDefault("AntiAD.Enable", true);
@@ -83,6 +84,7 @@ void KargatumConfig::LoadConfig()
     sLog->outString(">> Загрузка кастомной конфигурации завершена");
 #else
     sLog->outString(">> Loading custom configuration done");
+#endif
 
     this->CheckConfigOption();
     this->SetTimers();
@@ -96,10 +98,15 @@ void KargatumConfig::CheckConfigOption()
     sLog->outString("Началась проверка кастомной конфигурации...");
 #else
     sLog->outString("Start check custom configuration");
+#endif
 
     if (m_int[conf::ONLINE_REWARD_TIME_CHECK] < 5 * IN_MILLISECONDS)
     {
-        sLog->outString("Время для проверки награды очень мало (%u секунд). Установлено по умолчанию 60 секунд.", m_int[conf::ONLINE_REWARD_TIME_CHECK]);
+#ifdef KARGATUM_RUS_LANG
+        sLog->outString("-> Время для проверки награды очень мало (%u секунд). Установлено по умолчанию 60 секунд.", m_int[conf::ONLINE_REWARD_TIME_CHECK]);
+#else
+        sLog->outString("-> Time for check reward very small (%u secs). Set 60 sec.", m_int[conf::ONLINE_REWARD_TIME_CHECK]);
+#endif        
         m_int[conf::ONLINE_REWARD_TIME_CHECK] = 60 * IN_MILLISECONDS;
     }
     
@@ -107,6 +114,7 @@ void KargatumConfig::CheckConfigOption()
     sLog->outString(">> Проверка кастомной конфигурации завершена");
 #else
     sLog->outString(">> Check custom configuration done");
+#endif
 }
 
 void KargatumConfig::SetTimers()
