@@ -1,0 +1,266 @@
+#
+# Copyright (С) since 2019 Andrei Guluaev (Winfidonarleyan/Kargatum) https://github.com/Winfidonarleyan 
+# Licence MIT https://opensource.org/MIT
+#
+
+##################################
+# Кастомная система конфигурации #
+##################################
+[worldserver]
+
+###################################################################################################
+#   mod-anti-advertisment
+#   mod-auto-revive
+#   mod-bg-reward
+#   mod-buff-command
+#   mod-faction-icons-channel
+#   mod-gm-chat-color
+#   mod-level-reward
+#   mod-notify-muted
+#   mod-online-reward
+#   mod-player-info-login
+#   mod-spell-duration
+###################################################################################################
+
+###################################################################################################
+#	mod-anti-advertisment
+#
+#    AntiAD.Enable
+#        Описание: ___.
+#        По умолчанию: 1
+#
+#    AntiAD.Message.GM.World.Enable
+#        Описание: ___.
+#        По умолчанию: 1
+#
+#    AntiAD.FullMessage.GM.World.Enable
+#        Описание: ___.
+#        По умолчанию: 1
+#
+#    AntiAD.Message.Self.Enable
+#        Описание: ___.
+#        По умолчанию: 1
+#
+#    AntiAD.Enable.Mute
+#        Описание: ___.
+#        По умолчанию: 1
+#
+#    AntiAD.Mute.GM 
+#        Описание: ___.
+#        По умолчанию: 0
+#
+#    AntiAD.Mutetime 
+#        Описание: ___.
+#        По умолчанию: 5
+#
+
+AntiAD.Enable = 1
+AntiAD.Message.GM.World.Enable = 1
+AntiAD.FullMessage.GM.World.Enable = 1
+AntiAD.Message.Self.Enable = 1
+AntiAD.Enable.Mute = 1
+AntiAD.Mute.GM = 0
+AntiAD.Mutetime = 1
+###################################################################################################
+
+###################################################################################################
+#	mod-auto-revive
+#
+#    AutoRevive.Enable 
+#        Описание: ___.
+#        По умолчанию: 1
+#
+#    AutoRevive.ZoneID 
+#        Описание: ___.
+#        По умолчанию: 0
+#
+
+AutoRevive.Enable = 1
+AutoRevive.ZoneID = 0
+###################################################################################################
+
+###################################################################################################
+#	mod-bg-reward
+#
+#    BG.Reward.Enable 
+#        Описание: ___.
+#        По умолчанию: 1
+#
+#    BG.Reward.ItemID.WSG
+#        Описание: ___.
+#        По умолчанию: 20558
+#
+#    BG.Reward.ItemID.Arathi 
+#        Описание: ___.
+#        По умолчанию: 20559
+#
+#    BG.Reward.ItemID.Alterac
+#        Описание: ___.
+#        По умолчанию: 20560
+#
+#    BG.Reward.ItemID.Isle
+#        Описание: ___.
+#        По умолчанию: 47395
+#
+#    BG.Reward.ItemID.Ancients
+#        Описание: ___.
+#        По умолчанию: 42425
+#
+#    BG.Reward.ItemID.Eye
+#        Описание: ___.
+#        По умолчанию: 29024
+#
+#    BG.Reward.WinnerTeam.Count
+#        Описание: ___.
+#        По умолчанию: 3
+#
+#    BG.Reward.LoserTeam.Count
+#        Описание: ___.
+#        По умолчанию: 1
+#
+
+BG.Reward.Enable = 1
+BG.Reward.ItemID.WSG = 20558
+BG.Reward.ItemID.Arathi = 20559
+BG.Reward.ItemID.Alterac = 20560
+BG.Reward.ItemID.Isle = 47395
+BG.Reward.ItemID.Ancients = 42425
+BG.Reward.ItemID.Eye = 29024
+BG.Reward.WinnerTeam.Count = 3
+BG.Reward.LoserTeam.Count = 1
+
+###################################################################################################
+
+###################################################################################################
+#	mod-buff-command
+#
+#    Buff.Command.Enable
+#        Описание: ___.
+#        По умолчанию: 1
+#
+
+Buff.Command.Enable = 1
+###################################################################################################
+
+###################################################################################################
+#	mod-faction-icons-channel
+#
+#    Channel.Icon.Faction.Enable
+#        Описание: ___.
+#        По умолчанию: 1
+#
+#    Channel.Icon.Faction.OnlyLFG
+#        Описание: ___.
+#        По умолчанию: 1
+#
+#    Channel.Icon.Faction.GM
+#        Описание: ___.
+#        По умолчанию: 0
+#
+
+Channel.Icon.Faction.Enable = 1
+Channel.Icon.Faction.OnlyLFG = 1
+Channel.Icon.Faction.GM = 0
+###################################################################################################
+
+###################################################################################################
+#	mod-gm-chat-color
+#
+#    GM.Chat.Color.Enable
+#        Описание: ___.
+#        По умолчанию: 1
+#
+#    GM.Chat.Color.Level.3
+#        Описание: ___.
+#        По умолчанию: "|cffff0000"
+#
+#    GM.Chat.Color.Level.2
+#        Описание: ___.
+#        По умолчанию: "|cff0000ff"
+#
+#    GM.Chat.Color.Level.1
+#        Описание: ___.
+#        По умолчанию: "|cff0000ff"
+#
+
+GM.Chat.Color.Enable = 1
+GM.Chat.Color.Level.3 = "|cffff0000"
+GM.Chat.Color.Level.2 = "|cff0000ff"
+GM.Chat.Color.Level.1 = "|cff0000ff"
+
+###################################################################################################
+
+###################################################################################################
+#	mod-level-reward
+#
+#    Level.Reward.Enable
+#        Описание: ___.
+#        По умолчанию: 1
+#
+
+Level.Reward.Enable = 1
+###################################################################################################
+
+###################################################################################################
+#	mod-notify-muted
+#
+#    NotCanSpeak.Msg.Enable
+#        Описание: Включить оповещение о муте, если игрок замучен.
+#        По умолчанию: 1
+#
+
+NotCanSpeak.Msg.Enable = 1
+###################################################################################################
+
+###################################################################################################
+#	mod-online-reward
+#
+#    Online.Reward.Enable
+#        Описание: ___.
+#        По умолчанию: 1
+#
+#    Online.Reward.Type
+#        Описание: ___.
+#        По умолчанию: 1
+#
+#    Online.Reward.Type.Per.Hour.ItemID
+#        Описание: ___.
+#        По умолчанию: 40265
+#
+#    Online.Reward.Type.Per.Hour.Item.Count
+#        Описание: ___.
+#        По умолчанию: 1
+#
+#    Online.Reward.Time.Check
+#        Описание: ___.
+#        По умолчанию: 10
+#
+
+Online.Reward.Enable = 1
+Online.Reward.Type = 1
+Online.Reward.Type.Per.Hour.ItemID = 40265
+Online.Reward.Type.Per.Hour.Item.Count = 1
+Online.Reward.Time.Check = 10
+###################################################################################################
+
+###################################################################################################
+#	mod-player-info-login
+#
+#    Player.Info.Login.Enable
+#        Описание: ___.
+#        По умолчанию: 1
+#
+
+Player.Info.Login.Enable = 1
+###################################################################################################
+
+###################################################################################################
+#	mod-spell-duration
+#
+#    Spell.Duration.Enable
+#        Описание: ___.
+#        По умолчанию: 1
+#
+
+Spell.Duration.Enable = 1
+###################################################################################################
