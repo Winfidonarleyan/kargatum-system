@@ -1,56 +1,64 @@
-# Kargatum Public System [![Build Status](https://travis-ci.com/Winfidonarleyan/kargatum-system.svg?branch=master)](https://travis-ci.com/Winfidonarleyan/kargatum-system)
+# Kargatum System [![Build Status](https://travis-ci.com/Winfidonarleyan/kargatum-system.svg?branch=master)](https://travis-ci.com/Winfidonarleyan/kargatum-system)
 
 # Главное меню / Main menu
-1. Паблик скрипты / Public scripts
-- 1.1. [Pre Release]    mod-anti-advertisment
-- 1.2. [Pre Release]    mod-auto-revive
-- 1.3. [Pre Release]    mod-bg-reward
-- 1.4. [Pre Release]    mod-buff-command
-- 1.5. [Pre Release]    mod-faction-icons-channel
-- 1.6. [Pre Release]    mod-gm-chat-color
-- 1.7. [Pre Release]    mod-level-reward
-- 1.8. [Pre Release]    mod-notify-muted
-- 1.9. [Pre Release]    mod-online-reward
-- 1.10. [Pre Release]   mod-player-login
-- 1.11. [Initial]       mod-spell-duration
-2. Приват скрипты / Private scripts
-- 2.1. [Beta]           mod-crossfaction-bg
 
-### I understand only English [->](https://github.com/Winfidonarleyan/kargatum-system/blob/master/README.md#description-modules-and-custom-scripts-in-english-language)
+#### Паблик скрипты / Public scripts
+- **mod-anti-advertisment**
+- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/tree/master/src/mod-anti-advertisment)
+- * English description
 
-## Краткое описание скриптов и модулей на русском языке
+- **mod-auto-revive**
+- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-auto-revive)
+- * English description
 
-## Паблик скрипты
-### mod-anti-advertisment
-Запрет использования запрещенных слов в чате. Антиреклама кратко говоря
+- **mod-bg-reward**
+- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-bg-reward)
+- * English description
 
-### mod-auto-revive 
-Авто воскрешение при смерти только для гм
+- **mod-buff-command**
+- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-buff-command)
+- * English description
 
-### mod-bg-reward
-Выдача предметов в конце поле боя
+- **mod-faction-icons-channel**
+- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-faction-icons-channel)
+- * English description
 
-### mod-buff-command
-Новая команда `.buff`, которая выдаёт определённые баффы
+- **mod-gm-chat-color**
+- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-gm-chat-color)
+- * English description
 
-### mod-faction-icons-channel
-Показывает иконки фракций в каналах чата (больше всего подходит для серверов, где общий чат)
+- **mod-level-reward**
+- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-level-reward)
+- * English description
 
-### mod-gm-chat-color
-Цвет чата для гм 1-3 лвл
+- **mod-notify-muted**
+- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-notify-muted)
+- * English description
 
-### mod-level-reward
-Выдача наград за повышение уровня персонажа
+- **mod-online-reward**
+- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-online-reward)
+- * English description
 
-### mod-notify-muted
-Уведомление о том, что игрок в муте, когда ему пишут.
+- **mod-player-login**
+- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-player-login)
+- * English description
 
-### mod-online-reward
-Выдача наград за онлайн
+- **mod-spell-duration**
+- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-spell-duration)
+- * English description
 
-### mod-player-login
-При входе в игру в зависимости от уровня (гм или игрок) показывается небольшая информация
+#### Приват скрипты / Private scripts
+- **mod-crossfaction-bg**
+- * Русское описание
+- * English description
 
+### Чтобы включить поддержку русского языка
+Нужно раскомментировать данную строку в файле [KargatumConfig.h#L13](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/Kargatum-lib/KargatumConfig.h#L13). В итоге должно получить вот так. 
+```cpp
+#define KARGATUM_RUS_LANG
+```
+
+--------- 
 ### mod-spell-duration
 Модифицирование времени заклинаний (в бд, без исправления в дбц)
 
@@ -60,10 +68,6 @@
 Один из популярнейших скриптов, который меняет фракцию игрока на поле боя, которая в меньшенстве.
 
 ------
-
-### Я понимаю русский язык [->](https://github.com/Winfidonarleyan/kargatum-system#краткое-описание-скриптов-и-модулей-на-русском-языке)
-
-## Description modules and custom scripts in English language
 
 ## Public scripts
 ### mod-anti-advertisment
