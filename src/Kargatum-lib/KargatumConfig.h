@@ -9,8 +9,8 @@
 #include "Common.h"
 #include "Timer.h"
 
-// Удалите коментарий со следующей строки если хотите русский язык / Add comment for next line for english language (default)
-//#define KARGATUM_RUS_LANG
+// Удалите коментарий со следующей строки если хотите русский язык / Add comment for next line for english language
+#define KARGATUM_RUS_LANG
 
 namespace conf
 {
