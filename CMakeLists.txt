@@ -46,6 +46,9 @@ AC_ADD_SCRIPT_LOADER("Kargatum" "${CMAKE_CURRENT_LIST_DIR}/src/KargatumSCLoad.h"
 # Add config file
 AC_ADD_CONFIG_FILE("${KARGATUM_CONF_DIR}/KargatumSystem.conf.dist")
 
+# English config
+# AC_ADD_CONFIG_FILE("${KARGATUM_CONF_DIR}/KargatumSystem_eng.conf.dist")
+
 message("-> Loaded custom scripts")
 
 endif()

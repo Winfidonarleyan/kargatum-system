@@ -52,8 +52,18 @@
 - * Русское описание
 - * English description
 
-### Чтобы включить поддержку русского языка
-Нужно раскомментировать данную строку в файле [KargatumConfig.h#L13](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/Kargatum-lib/KargatumConfig.h#L13). В итоге должно получить вот так. 
+### For enable eng language in config and game world
+- For game world 
+Need uncomment line in file [KargatumConfig.h#L13](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/Kargatum-lib/KargatumConfig.h#L13). Should be like this
 ```cpp
-#define KARGATUM_RUS_LANG
+// #define KARGATUM_RUS_LANG
+```
+- For config
+Comment line in file [CMakeLists.txt#L47](https://github.com/Winfidonarleyan/kargatum-system/blob/master/CMakeLists.txt#L47).
+```Cmake
+# AC_ADD_CONFIG_FILE("${KARGATUM_CONF_DIR}/KargatumSystem.conf.dist")
+```
+And uncomment line in the same file [CMakeLists.txt#L50](https://github.com/Winfidonarleyan/kargatum-system/blob/master/CMakeLists.txt#L50).
+```Cmake
+AC_ADD_CONFIG_FILE("${KARGATUM_CONF_DIR}/KargatumSystem_eng.conf.dist")
 ```
