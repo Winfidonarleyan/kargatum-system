@@ -1,0 +1,265 @@
+#
+# Copyright (С) since 2019 Andrei Guluaev (Winfidonarleyan/Kargatum) https://github.com/Winfidonarleyan 
+# Licence MIT https://opensource.org/MIT
+#
+
+###############################
+# Custom configuration system #
+###############################
+[worldserver]
+
+###################################################################################################
+#   mod-anti-advertisment
+#   mod-auto-revive
+#   mod-bg-reward
+#   mod-buff-command
+#   mod-faction-icons-channel
+#   mod-gm-chat-color
+#   mod-level-reward
+#   mod-notify-muted
+#   mod-online-reward
+#   mod-player-info-login
+#   mod-spell-duration
+###################################################################################################
+
+###################################################################################################
+#	mod-anti-advertisment
+#
+#    AntiAD.Enable
+#        Description: Enable system forbidden words.
+#        Default: 1
+#
+#    AntiAD.Message.GM.World.Enable
+#        Description: Enable notify all GMs.
+#        Default: 1
+#
+#    AntiAD.FullMessage.GM.World.Enable
+#        Description: Enable notify full message all GMs.
+#        Default: 1
+#
+#    AntiAD.Message.Self.Enable
+#        Description: Show forbidden word message self.
+#        Default: 1
+#
+#    AntiAD.Enable.Mute
+#        Description: Enable mute at writing forbidden word.
+#        Default: 1
+#
+#    AntiAD.Mute.GM 
+#        Description: Enable mute for GMs.
+#        Default: 0
+#
+#    AntiAD.Mutetime 
+#        Description: Mute time in minutes.
+#        Default: 5
+#
+
+AntiAD.Enable = 1
+AntiAD.Message.GM.World.Enable = 1
+AntiAD.FullMessage.GM.World.Enable = 1
+AntiAD.Message.Self.Enable = 1
+AntiAD.Enable.Mute = 1
+AntiAD.Mute.GM = 0
+AntiAD.Mutetime = 1
+###################################################################################################
+
+###################################################################################################
+#	mod-auto-revive
+#
+#    AutoRevive.Enable 
+#        Description: Enable auto revive before die, only GM account.
+#        Default: 1
+#
+#    AutoRevive.ZoneID 
+#        Description: Enable in a certain area, if it is 0, it means everywhere.
+#        Default: 0
+#
+
+AutoRevive.Enable = 1
+AutoRevive.ZoneID = 0
+###################################################################################################
+
+###################################################################################################
+#	mod-bg-reward
+#
+#    BG.Reward.Enable
+#        Description: Enable battleground reward system.
+#        Default: 1
+#
+#    BG.Reward.ItemID.WSG
+#        Description: Reward item on battleground Warsong Gulch.
+#        Default: 20558
+#
+#    BG.Reward.ItemID.Arathi 
+#        Description: Reward item on battleground Arathi Basin.
+#        Default: 20559
+#
+#    BG.Reward.ItemID.Alterac
+#        Description: Reward item on battleground Alterac Valley.
+#        Default: 20560
+#
+#    BG.Reward.ItemID.Isle
+#        Description: Reward item on battleground Isle of Conquest.
+#        Default: 47395
+#
+#    BG.Reward.ItemID.Ancients
+#        Description: Reward item on battleground Strand of the Ancients.
+#        Default: 42425
+#
+#    BG.Reward.ItemID.Eye
+#        Description: Reward item on battleground Eye of the Storm.
+#        Default: 29024
+#
+#    BG.Reward.WinnerTeam.Count
+#        Description: Reward item count battleground winner team.
+#        Default: 3
+#
+#    BG.Reward.LoserTeam.Count
+#        Description: Reward item count battleground looser team.
+#        Default: 1
+#
+
+BG.Reward.Enable = 1
+BG.Reward.ItemID.WSG = 20558
+BG.Reward.ItemID.Arathi = 20559
+BG.Reward.ItemID.Alterac = 20560
+BG.Reward.ItemID.Isle = 47395
+BG.Reward.ItemID.Ancients = 42425
+BG.Reward.ItemID.Eye = 29024
+BG.Reward.WinnerTeam.Count = 3
+BG.Reward.LoserTeam.Count = 1
+###################################################################################################
+
+###################################################################################################
+#	mod-buff-command
+#
+#    Buff.Command.Enable
+#        Description: Enable command .buff.
+#        Default: 1
+#
+
+Buff.Command.Enable = 1
+###################################################################################################
+
+###################################################################################################
+#	mod-faction-icons-channel
+#
+#    Channel.Icon.Faction.Enable
+#        Description: Display fraction incons in chat channels.
+#        Default: 1
+#
+#    Channel.Icon.Faction.OnlyLFG
+#        Description: Display fraction incons in chat channels only LFG.
+#        Default: 1
+#
+#    Channel.Icon.Faction.GM
+#        Description: Display fraction incons for GM account.
+#        Default: 0
+#
+
+Channel.Icon.Faction.Enable = 1
+Channel.Icon.Faction.OnlyLFG = 1
+Channel.Icon.Faction.GM = 0
+###################################################################################################
+
+###################################################################################################
+#	mod-gm-chat-color
+#
+#    GM.Chat.Color.Enable
+#        Description: Enable color in chat for GM witch GM badge.
+#        Default: 1
+#
+#    GM.Chat.Color.Level.3
+#        Description: Message color for GM level 3.
+#        Default: "|cffff0000"
+#
+#    GM.Chat.Color.Level.2
+#        Description: Message color for GM level 2.
+#        Default: "|cff0000ff"
+#
+#    GM.Chat.Color.Level.1
+#        Description: Message color for GM level 1.
+#        Default: "|cff0000ff"
+#
+
+GM.Chat.Color.Enable = 1
+GM.Chat.Color.Level.3 = "|cffff0000"
+GM.Chat.Color.Level.2 = "|cff0000ff"
+GM.Chat.Color.Level.1 = "|cff0000ff"
+
+###################################################################################################
+
+###################################################################################################
+#	mod-level-reward
+#
+#    Level.Reward.Enable
+#        Description: Enable level up reward system.
+#        Default: 1
+#
+
+Level.Reward.Enable = 1
+###################################################################################################
+
+###################################################################################################
+#	mod-notify-muted
+#
+#    NotCanSpeak.Msg.Enable
+#        Description: Enable notify about mute, if player receiver mute.
+#        Default: 1
+#
+
+NotCanSpeak.Msg.Enable = 1
+###################################################################################################
+
+###################################################################################################
+#	mod-online-reward
+#
+#    Online.Reward.Enable
+#        Description: Enable online reward.
+#        Default: 1
+#
+#    Online.Reward.Type
+#        Description: Reward online type. 1 - Default (playing second), 2 - per hour.
+#        Default: 1
+#
+#    Online.Reward.Type.Per.Hour.ItemID
+#        Description: Reward item number at type # 2.
+#        Default: 40265
+#
+#    Online.Reward.Type.Per.Hour.Item.Count
+#        Description: Reward item count at type # 2.
+#        Default: 1
+#
+#    Online.Reward.Time.Check
+#        Description: Time check for system.
+#        Default: 10
+#
+
+Online.Reward.Enable = 1
+Online.Reward.Type = 1
+Online.Reward.Type.Per.Hour.ItemID = 40265
+Online.Reward.Type.Per.Hour.Item.Count = 1
+Online.Reward.Time.Check = 10
+###################################################################################################
+
+###################################################################################################
+#	mod-player-info-login
+#
+#    Player.Info.Login.Enable
+#        Description: Display info at login in game world
+#        Default: 1
+#
+
+Player.Info.Login.Enable = 1
+###################################################################################################
+
+###################################################################################################
+#	mod-spell-duration
+#
+#    Spell.Duration.Enable
+#        Description: Enable system spell duration.
+#        Default: 1
+#
+
+Spell.Duration.Enable = 1
+###################################################################################################
