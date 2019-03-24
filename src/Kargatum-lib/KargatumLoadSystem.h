@@ -31,7 +31,7 @@ struct LevelReward
 
 enum TypeReward
 {
-    DEFAULT_REWARD,
+    DEFAULT_REWARD = 1,
     REWARD_PER_HOUR
 };
 
