@@ -1,4 +1,7 @@
 # mod-notify-muted
+
+### English readme [->](https://github.com/Winfidonarleyan/kargatum-system/tree/master/src/mod-notify-muted/README_eng.md)
+
 - Описание
 - Конфигурация
 - Как использовать
@@ -7,7 +10,7 @@
 Выдача наград за повышение уровня персонажа
 
 ### Конфигурация:
-```cpp
+```ini
 ###################################################################################################
 #	mod-notify-muted
 #

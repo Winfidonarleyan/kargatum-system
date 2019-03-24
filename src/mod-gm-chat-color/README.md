@@ -1,4 +1,7 @@
 # mod-gm-chat-color
+
+### English readme [->](https://github.com/Winfidonarleyan/kargatum-system/tree/master/src/mod-gm-chat-color/README_eng.md)
+
 - Описание
 - Конфигурация
 - Как использовать
@@ -7,7 +10,7 @@
 Цвет чата для ГМ
 
 ### Конфигурация:
-```cpp
+```ini
 ###################################################################################################
 #	mod-gm-chat-color
 #

@@ -1,4 +1,7 @@
 # mod-faction-icons-channel
+
+### English readme [->](https://github.com/Winfidonarleyan/kargatum-system/tree/master/src/mod-faction-icons-channel/README_eng.md)
+
 - Описание
 - Конфигурация
 - Как использовать
@@ -7,7 +10,7 @@
 Добавление иконки фрации в каналах чата
 
 ### Конфигурация:
-```cpp
+```ini
 ###################################################################################################
 #	mod-faction-icons-channel
 #

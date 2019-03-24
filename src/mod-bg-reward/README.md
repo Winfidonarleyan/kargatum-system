@@ -1,4 +1,7 @@
 # mod-bg-reward
+
+### English readme [->](https://github.com/Winfidonarleyan/kargatum-system/tree/master/src/mod-bg-reward/README_eng.md)
+
 - Описание
 - Конфигурация
 - Как использовать
@@ -7,7 +10,7 @@
 Выдача наград в конце поля боя
 
 ### Конфигурация:
-```cpp
+```ini
 ###################################################################################################
 #	mod-bg-reward
 #

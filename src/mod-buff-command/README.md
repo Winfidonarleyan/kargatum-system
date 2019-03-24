@@ -1,4 +1,7 @@
 # mod-buff-command
+
+### English readme [->](https://github.com/Winfidonarleyan/kargatum-system/tree/master/src/mod-buff-command/README_eng.md)
+
 - Описание
 - Конфигурация
 - Как использовать
@@ -7,7 +10,7 @@
 Добавление новой кастомной команды `.buff`
 
 ### Конфигурация:
-```cpp
+```ini
 ###################################################################################################
 #	mod-buff-command
 #

@@ -1,4 +1,7 @@
 # mod-player-info-login
+
+### English readme [->](https://github.com/Winfidonarleyan/kargatum-system/tree/master/src/mod-player-info-login/README_eng.md)
+
 - Описание
 - Конфигурация
 - Как использовать
@@ -7,7 +10,7 @@
 При входе в игровой мир показывается небольшая информация
 
 ### Конфигурация:
-```cpp
+```ini
 ###################################################################################################
 #	mod-player-info-login
 #
