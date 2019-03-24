@@ -3,6 +3,8 @@
  * Licence MIT https://opensource.org/MIT
  */
 
+INSERT INTO `version_db_world` (`sql_rev`) VALUES ('1553428344428393600');
+
 -- ----------------------------
 -- Table structure for anti_ad_message
 -- ----------------------------
