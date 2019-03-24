@@ -25,12 +25,11 @@ public:
         uint32 PlayerOnlineCount        = sWorld->GetPlayerCount();
         std::string ServerUptime        = secsToTimeString(sWorld->GetUptime());
         std::string PlayerIP            = player->GetSession()->GetRemoteAddress();
-        uint32 PlayerLimitEnterWorld    = sWorld->GetPlayerAmountLimit();
         uint32 GMLevel                  = player->GetSession()->GetSecurity();
         uint32 connPeak                 = sWorld->GetMaxActiveSessionCount();
 
         handler.PSendSysMessage("|cffff0000##############################|r");
-#ifdef KARGATUM_RUS_LANG        
+#ifdef KARGATUM_RUS_LANG
         handler.PSendSysMessage("|cffff0000# |cff00ff00Привет,|r %s", PlayerName.c_str());
 
         if (GMLevel)
