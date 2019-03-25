@@ -35,4 +35,4 @@ Level.Reward.Enable = 1
 - `Level` - Уровень
 - `Money` - Деньги
 - `ItemID` - Номер предмета
-- `ItemCount` - Количетво предмета
+- `ItemCount` - Количество предмета
