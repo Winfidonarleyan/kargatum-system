@@ -39,11 +39,11 @@
 - * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-online-reward)
 - * [English description](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-online-reward/README_eng.md)
 
-- **mod-player-login**
-- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-player-login)
-- * [English description](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-player-login/README_eng.md)
+- **mod-player-info-login**
+- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-player-info-login)
+- * [English description](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-player-info-login/README_eng.md)
 
-- **mod-spell-duration**
+- **mod-spell-duration** Coming soon... / Скоро...
 - * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-spell-duration)
 - * [English description](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-spell-duration/README_eng.md)
 
