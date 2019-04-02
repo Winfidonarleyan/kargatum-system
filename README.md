@@ -47,6 +47,10 @@
 - * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-spell-duration)
 - * [English description](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-spell-duration/README_eng.md)
 
+- **mod-auto-loot** Coming soon... / Скоро...
+- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-auto-loot)
+- * [English description](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-auto-loot/README_eng.md)
+
 #### Приват скрипты / Private scripts
 - **mod-crossfaction-bg** Coming soon... / Скоро...
 - * Русское описание
