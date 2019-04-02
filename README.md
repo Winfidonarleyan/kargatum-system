@@ -71,3 +71,8 @@ And uncomment line in the same file [CMakeLists.txt#L50](https://github.com/Winf
 ```Cmake
 AC_ADD_CONFIG_FILE("${KARGATUM_CONF_DIR}/KargatumSystem_eng.conf.dist")
 ```
+
+### Credits
+- Autor system - [Winfidonarleyan](https://github.com/Winfidonarleyan)
+- [Discord channel for system](https://discord.gg/xCwPqdq)
+- [Discord channel for AzerothCore](https://discord.gg/PaqQRkd)
