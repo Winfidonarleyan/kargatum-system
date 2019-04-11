@@ -77,19 +77,19 @@ public:
 			player->RemoveAurasByType(SPELL_AURA_MOUNTED);
 
 			KargatumLoad::BuffDataContainer& buffStore = sKargatumLoad->GetBuffData();
-
-#ifdef KARGATUMCORE
+		
             for (auto i : buffStore)
             {
-                if (!player->GetSession()->IsVIP() && i.second)
+#ifdef KARGATUMCORE	
+				if (!player->GetSession()->IsVIP() && i.second)
                     continue;
 
                 player->CastSpell(player, i.first, true);
-            }
 #else
-            for (auto i : buffStore)
                 player->CastSpell(player, i, true);
 #endif
+ 			}
+			
 			return true;
 		}
 	}

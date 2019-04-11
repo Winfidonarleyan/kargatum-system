@@ -8,13 +8,13 @@
 #include "DatabaseEnv.h"
 #include "Player.h"
 
-LibKargatumScript* LibKargatumScript::instance()
+KargatumScript* KargatumScript::instance()
 {
-    static LibKargatumScript instance;
+    static KargatumScript instance;
     return &instance;
 }
 
-std::string LibKargatumScript::GetMoneyString(uint32 Gold)
+std::string KargatumScript::GetMoneyString(uint32 Gold)
 {
     uint32 gold = Gold / GOLD;
     uint32 silv = (Gold % GOLD) / SILVER;
@@ -23,7 +23,7 @@ std::string LibKargatumScript::GetMoneyString(uint32 Gold)
     return this->GetFormatString("%u|TInterface\\MoneyFrame\\UI-GoldIcon:0:0:2:0|t %u|TInterface\\MoneyFrame\\UI-SilverIcon:0:0:2:0|t %u|TInterface\\MoneyFrame\\UI-CopperIcon:0:0:2:0|t", gold, silv, copp);
 }
 
-std::string LibKargatumScript::GetFormatString(const char* format, ...)
+std::string KargatumScript::GetFormatString(const char* format, ...)
 {
     va_list ap;
     char str[2048];
@@ -33,7 +33,7 @@ std::string LibKargatumScript::GetFormatString(const char* format, ...)
     return std::string(str);
 }
 
-void LibKargatumScript::SendMailPlayer(Player* player, std::string Subject, std::string Text, uint32 ItemEntry, uint32 ItemCount)
+void KargatumScript::SendMailPlayer(Player* player, std::string Subject, std::string Text, uint32 ItemEntry, uint32 ItemCount)
 {
     // from console show not existed sender
     MailSender sender(MAIL_NORMAL, player->GetGUIDLow(), MAIL_STATIONERY_DEFAULT);

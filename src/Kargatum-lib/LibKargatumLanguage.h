@@ -9,7 +9,7 @@
 #ifndef KARGATUMCORE
 namespace lang
 {
-    enum LibKargatumStrings // Локализация
+    enum KargatumStrings // Локализация
     {
         // mod-anti-advertisment
         ANTIAD_SEND_GM_TEXT = 50000,

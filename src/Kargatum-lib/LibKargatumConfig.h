@@ -13,7 +13,7 @@
 namespace conf
 {
 	/// - Структуры конфига
-	enum LibKargatumBoolConfigs
+	enum KargatumBoolConfigs
 	{
 		// mod-anti-advertisment
 		ANTIAD_ENABLE,
@@ -59,7 +59,7 @@ namespace conf
 		BOOL_VALUE_COUNT
 	};
 
-	enum LibKargatumFloatConfigs
+	enum KargatumFloatConfigs
 	{
 		TEST_CONF_FLOAT,
 
@@ -67,7 +67,7 @@ namespace conf
 		FLOAT_VALUE_COUNT
 	};
 
-	enum LibKargatumIntConfigs
+	enum KargatumIntConfigs
 	{
         // mod-anti-advertisment
         ANTIAD_MUTETIME,
@@ -95,7 +95,7 @@ namespace conf
 		INT_VALUE_COUNT
 	};
 
-	enum LibKargatumStringConfigs
+	enum KargatumStringConfigs
 	{
 		// mod-gm-chat-color
 		GM_CHAT_COLOR_LEVEL_3,
@@ -108,32 +108,32 @@ namespace conf
 
 } // conf
 
-class LibKargatumConfig
+class KargatumConfig
 {
 public:
 
-	static LibKargatumConfig* instance();
+	static KargatumConfig* instance();
 	
 	/// Получить с конфига Bool
-	bool GetBool(conf::LibKargatumBoolConfigs index) const
+	bool GetBool(conf::KargatumBoolConfigs index) const
 	{
 		return index < conf::BOOL_VALUE_COUNT ? m_bool[index] : 0;
 	}
 	
 	/// Получить с конфига Float
-	float GetFloat(conf::LibKargatumFloatConfigs index) const
+	float GetFloat(conf::KargatumFloatConfigs index) const
 	{
 		return index < conf::FLOAT_VALUE_COUNT ? m_float[index] : 0;
 	}
 
 	/// Получить с конфига Int
-	int32 GetInt(conf::LibKargatumIntConfigs index) const
+	int32 GetInt(conf::KargatumIntConfigs index) const
 	{
 		return index < conf::INT_VALUE_COUNT ? m_int[index] : 0;
 	}
 
 	/// Получить с конфига String
-	std::string GetString(conf::LibKargatumStringConfigs index) const
+	std::string GetString(conf::KargatumStringConfigs index) const
 	{
 		return index < conf::STRING_VALUE_COUNT ? m_string[index] : 0;
 	}
@@ -155,7 +155,7 @@ private:
     void SetTimers();
 };
 
-#define sKargatumConfig LibKargatumConfig::instance()
+#define sKargatumConfig KargatumConfig::instance()
 
 #define CONF_BOOL 	sKargatumConfig->GetBool
 #define CONF_INT 	sKargatumConfig->GetInt
@@ -163,4 +163,4 @@ private:
 #define CONF_FLOAT 	sKargatumConfig->GetFloat
 #endif // KARGATUMCORE
 
-#endif // _LIBKARGATUM_CONFIG_H
+#endif // _Kargatum_CONFIG_H

@@ -12,13 +12,13 @@
 #include "DBCStores.h"
 #include "DatabaseEnv.h"
 
-LibKargatumLoad* LibKargatumLoad::instance()
+KargatumLoad* KargatumLoad::instance()
 {
-    static LibKargatumLoad instance;
+    static KargatumLoad instance;
     return &instance;
 }
 
-void LibKargatumLoad::LoadMessageAntiAD()
+void KargatumLoad::LoadMessageAntiAD()
 {
 	uint32 oldMSTime = getMSTime();
 
@@ -51,7 +51,7 @@ void LibKargatumLoad::LoadMessageAntiAD()
 	sLog->outString();
 }
 
-void LibKargatumLoad::LoadBuffData()
+void KargatumLoad::LoadBuffData()
 {
 	uint32 oldMSTime = getMSTime();
 
@@ -99,7 +99,7 @@ void LibKargatumLoad::LoadBuffData()
 }
 
 /*
-void LibKargatumLoad::LoadLevelUPItem()
+void KargatumLoad::LoadLevelUPItem()
 {
 	uint32 oldMSTime = getMSTime();
 
@@ -157,7 +157,7 @@ void LibKargatumLoad::LoadLevelUPItem()
 	sLog->outString();
 }*/
 
-void LibKargatumLoad::LoadPlayedTimeReward()
+void KargatumLoad::LoadPlayedTimeReward()
 {
     uint32 msTime = getMSTime();
     _RewardPlayedTimeStore.clear();
@@ -228,7 +228,7 @@ void LibKargatumLoad::LoadPlayedTimeReward()
     sLog->outString();
 }
 
-void LibKargatumLoad::LoadLevelReward()
+void KargatumLoad::LoadLevelReward()
 {
     uint32 msTime = getMSTime();
     _levelRewardStore.clear();
@@ -305,7 +305,7 @@ void LibKargatumLoad::LoadLevelReward()
     sLog->outString();
 }
 
-void LibKargatumLoad::LoadKargatumSystem()
+void KargatumLoad::LoadKargatumSystem()
 {
     if (CONF_BOOL(conf::BUFF_COMMAND_ENABLE))
     {

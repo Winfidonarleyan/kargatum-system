@@ -10,13 +10,13 @@
 #include "Log.h"
 #include "ScriptMgr.h"
 
-LibKargatumConfig* LibKargatumConfig::instance()
+KargatumConfig* KargatumConfig::instance()
 {
-    static LibKargatumConfig instance;
+    static KargatumConfig instance;
     return &instance;
 }
 
-void LibKargatumConfig::LoadConfig()
+void KargatumConfig::LoadConfig()
 {
 #ifdef KARGATUM_RUS_LANG
     sLog->outString("Загрузка кастомной конфигурации");
@@ -91,7 +91,7 @@ void LibKargatumConfig::LoadConfig()
     this->SetTimers();
 }
 
-void LibKargatumConfig::CheckConfigOption()
+void KargatumConfig::CheckConfigOption()
 {
     sLog->outString();
     
@@ -118,7 +118,7 @@ void LibKargatumConfig::CheckConfigOption()
 #endif
 }
 
-void LibKargatumConfig::SetTimers()
+void KargatumConfig::SetTimers()
 {
     _UpdateTimerOnlineReward.SetInterval(m_int[conf::ONLINE_REWARD_TIME_CHECK] * IN_MILLISECONDS);
 }

@@ -36,11 +36,11 @@ enum TypeReward
     REWARD_PER_HOUR
 };
 
-class LibKargatumLoad
+class KargatumLoad
 {
 public:
 	
-	static LibKargatumLoad* instance();
+	static KargatumLoad* instance();
     
     void LoadKargatumSystem();    
 	void LoadMessageAntiAD();	
@@ -70,7 +70,7 @@ private:
     LevelRewardContainer _levelRewardStore;
 };
 
-#define sKargatumLoad LibKargatumLoad::instance()
+#define sKargatumLoad KargatumLoad::instance()
 #endif // KARGATUMCORE
 
 #endif // LIBKARGATUM_LOAD_H
