@@ -1,78 +1,46 @@
 # Kargatum System [![Build Status](https://travis-ci.com/Winfidonarleyan/kargatum-system.svg?branch=master)](https://travis-ci.com/Winfidonarleyan/kargatum-system)
 
-# Главное меню / Main menu
+## Описание на русском языке. Go to english description [->](https://github.com/Winfidonarleyan/kargatum-system/blob/master/README_eng.md)
 
-#### Паблик скрипты / Public scripts
-- **mod-anti-advertisment**
-- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/tree/master/src/mod-anti-advertisment)
-- * [English description](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-anti-advertisment/README_eng.md)
+* [Как установить систему](#установка-системы)
+* [Список паблик модулей](#паблик-скрипты)
+* [Список приват модулей](#приват-скрипты)
+* [Смена языка в системе](#выбор-языка-в-системе)
+* [Ссылки](#ссылки)
 
-- **mod-auto-revive**
-- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-auto-revive)
-- * [English description](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-auto-revive/README_eng.md)
-
-- **mod-bg-reward**
-- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-bg-reward)
-- * [English description](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-bg-reward/README_eng.md)
-
-- **mod-buff-command**
-- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-buff-command)
-- * [English description](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-buff-command/README_eng.md)
-
-- **mod-faction-icons-channel**
-- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-faction-icons-channel)
-- * [English description](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-faction-icons-channel/README_eng.md)
-
-- **mod-gm-chat-color**
-- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-gm-chat-color)
-- * [English description](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-gm-chat-color/README_eng.md)
-
-- **mod-level-reward**
-- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-level-reward)
-- * [English description](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-level-reward/README_eng.md)
-
-- **mod-notify-muted**
-- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-notify-muted)
-- * [English description](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-notify-muted/README_eng.md)
-
-- **mod-online-reward**
-- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-online-reward)
-- * [English description](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-online-reward/README_eng.md)
-
-- **mod-player-info-login**
-- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-player-info-login)
-- * [English description](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-player-info-login/README_eng.md)
-
-- **mod-spell-duration** Coming soon... / Скоро...
-- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-spell-duration)
-- * [English description](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-spell-duration/README_eng.md)
-
-- **mod-auto-loot** Coming soon... / Скоро...
-- * [Русское описание](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-auto-loot)
-- * [English description](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-auto-loot/README_eng.md)
-
-#### Приват скрипты / Private scripts
-- **mod-crossfaction-bg** Coming soon... / Скоро...
-- * Русское описание
-- * English description
-
-### For enable eng language in config and game world
-- For game world 
-Need uncomment line in file [KargatumConfig.h#L13](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/Kargatum-lib/KargatumConfig.h#L13). Should be like this
-```cpp
-// #define KARGATUM_RUS_LANG
+## Установка системы
+**Есть 2 способа установки**
+1. Клонировать репозиторий в папку `modules` в вашем ядре (рекомендуемый способ)
+```sh
+git clone https://github.com/Winfidonarleyan/kargatum-system
 ```
-- For config
-Comment line in file [CMakeLists.txt#L47](https://github.com/Winfidonarleyan/kargatum-system/blob/master/CMakeLists.txt#L47).
-```Cmake
-# AC_ADD_CONFIG_FILE("${KARGATUM_CONF_DIR}/KargatumSystem.conf.dist")
-```
-And uncomment line in the same file [CMakeLists.txt#L50](https://github.com/Winfidonarleyan/kargatum-system/blob/master/CMakeLists.txt#L50).
-```Cmake
-AC_ADD_CONFIG_FILE("${KARGATUM_CONF_DIR}/KargatumSystem_eng.conf.dist")
-```
+2. Скачать репозиторий вручную и закинуть папку `kargatum-system-master` в папку `modules` в вашем ядре
+3. Выбрать язык в системе [Смена языка в системе](#выбор-языка-в-системе)
+4. **Если есть какие-то вопросы, добро пожаловать в наш дискорд канал - [Дискорд канал системы](https://discord.gg/xCwPqdq)**
 
-### Credits
-- Autor system - [Winfidonarleyan](https://github.com/Winfidonarleyan)
-- [Discord channel for system](https://discord.gg/xCwPqdq)
-- [Discord channel for AzerothCore](https://discord.gg/PaqQRkd)
+## Паблик скрипты
+- [mod-anti-advertisment](https://github.com/Winfidonarleyan/kargatum-system/tree/master/src/mod-anti-advertisment/README.md)
+- [mod-auto-revive](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-auto-revive/README.md)
+- [mod-bg-reward](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-bg-reward/README.md)
+- [mod-buff-command](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-buff-command/README.md)
+- [mod-faction-icons-channel](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-faction-icons-channel/README.md)
+- [mod-gm-chat-color](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-gm-chat-color/README.md)
+- [mod-level-reward](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-level-reward/README.md)
+- [mod-notify-muted](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-notify-muted/README.md)
+- [mod-online-reward](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-online-reward/README.md)
+- [mod-player-info-login](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-player-info-login/README.md)
+- [mod-spell-duration](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-spell-duration/README.md)
+- [mod-auto-loot](https://github.com/Winfidonarleyan/kargatum-system/blob/master/src/mod-auto-loot/README.md)
+
+## Приват скрипты
+- **mod-crossfaction-bg** Скоро...
+
+## Выбор языка в системе
+- Включить опцию `KARGATUM_RUS_LANG` в CMake
+- По умолчанию уже включен русский язык
+- **Если есть какие-то вопросы, добро пожаловать в наш дискорд канал - [Дискорд канал системы](https://discord.gg/xCwPqdq)**
+
+## Ссылки
+- Автор - [Winfidonarleyan](https://github.com/Winfidonarleyan)
+- [Дискорд канал системы](https://discord.gg/xCwPqdq)
+- [Дискорд канал AzerothCore](https://discord.gg/PaqQRkd)
