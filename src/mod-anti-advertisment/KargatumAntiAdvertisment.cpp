@@ -23,7 +23,7 @@ class Kargatum_AntiAdvertisment : public PlayerScript
 public:
     Kargatum_AntiAdvertisment() : PlayerScript("Kargatum_AntiAdvertisment") { }
 
-    void Mute(Player* player, std::string ADMessage, std::string FullMessage)
+    void Mute(Player* player)
     {
         if (!CONF_BOOL(conf::ANTIAD_MUTE_ENABLE))
             return;
@@ -69,7 +69,7 @@ public:
             {
                 msg = "";
                 SendGMTexts(NameLink, ADMessage, FullMessage);
-                Mute(player, ADMessage, FullMessage);
+                Mute(player);
             }
         }
     };
