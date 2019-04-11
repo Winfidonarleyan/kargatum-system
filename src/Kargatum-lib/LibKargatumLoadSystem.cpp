@@ -4,8 +4,8 @@
  */
 
 #ifndef KARGATUMCORE
-#include "LibKargatumLoadSystem.h"
-#include "LibKargatumConfig.h"
+#include "../Kargatum-lib/LibKargatumLoadSystem.h"
+#include "../Kargatum-lib/LibKargatumConfig.h"
 #include "Log.h"
 #include "World.h"
 #include "ObjectMgr.h"

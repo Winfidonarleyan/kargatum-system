@@ -8,9 +8,9 @@
 #include "KargatumLoadSystem.h"
 #include "KargatumScript.h"
 #else
-#include "LibKargatumConfig.h"
-#include "LibKargatumLoadSystem.h"
-#include "LibKargatumScripts.h"
+#include "../Kargatum-lib/LibKargatumConfig.h"
+#include "../Kargatum-lib/LibKargatumLoadSystem.h"
+#include "../Kargatum-lib/LibKargatumScripts.h"
 #endif
 
 #include "ScriptMgr.h"

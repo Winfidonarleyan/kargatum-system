@@ -6,7 +6,7 @@
 #ifdef KARGATUMCORE
 #include "KargatumConfig.h"
 #else
-#include "LibKargatumConfig.h"
+#include "../Kargatum-lib/LibKargatumConfig.h"
 #endif
 
 #include "ScriptMgr.h"
