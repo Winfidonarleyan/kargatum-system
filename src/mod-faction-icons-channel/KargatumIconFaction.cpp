@@ -22,20 +22,23 @@ public:
 
 	void OnChat(Player* player, uint32 /*type*/, uint32 /*lang*/, std::string& msg, Channel* channel) override
 	{
-		if (!player || !channel)
-			return;
-
 		if (!CONF_BOOL(conf::CHANNEL_ICON_FACTION_ENABLE))
 			return;
 
-		if ((CONF_BOOL(conf::CHANNEL_ICON_FACTION_ONLYLFG) && !channel->IsLFG()))
+        if (!player || !channel)
+            return;
+
+		if (CONF_BOOL(conf::CHANNEL_ICON_FACTION_ONLYLFG) && !channel->IsLFG())
 			return;
 
-		if (CONF_BOOL(conf::CHANNEL_ICON_FACTION_GM_ENABLE) && AccountMgr::IsPlayerAccount(player->GetSession()->GetSecurity()))
+		if (!CONF_BOOL(conf::CHANNEL_ICON_FACTION_GM_ENABLE) && !AccountMgr::IsPlayerAccount(player->GetSession()->GetSecurity()))
 			return;
+
+        std::string IconHorge       = "|TInterface\\PVPFrame\\PVP-Currency-Horde:18:18:-3:-3|t";
+        std::string IconAlliance    = "|TInterface\\PVPFrame\\PVP-Currency-Alliance:18:18:-3:-3|t";
 
 		std::stringstream ssMsg;
-		ssMsg << ((player->GetTeamId() == TEAM_HORDE) ? "|TInterface\\PVPFrame\\PVP-Currency-Horde:18:18:-3:-3|t" : "|TInterface\\PVPFrame\\PVP-Currency-Alliance:18:18:-3:-3|t") << msg;
+		ssMsg << ((player->GetTeamId() == TEAM_HORDE) ? IconHorge : IconAlliance) << msg;
 		msg = ssMsg.str();
 	}
 };
