@@ -17,6 +17,7 @@
 #include "Chat.h"
 #include "Player.h"
 #include "LootMgr.h"
+#include "World.h"
 
 class KargatumLevelReward : public PlayerScript
 {
@@ -31,12 +32,12 @@ public:
         uint8 PlayerLevel = player->getLevel();
         int32 Diff = PlayerLevel - oldLevel;
 
-        if (Diff < 0 || PlayerLevel == 1 || PlayerLevel > sWorld->getIntConfig(CONFIG_MAX_PLAYER_LEVEL))
+        if (Diff <= 0 || PlayerLevel == 1)
             return;
 
         while (Diff)
         {
-            RewardForLevel(player, PlayerLevel - Diff);
+            RewardForLevel(player, PlayerLevel + 1 - Diff);
             Diff--;
         }
     }
@@ -54,30 +55,30 @@ private:
 
     void RewardForLevel(Player* player, uint8 Level)
     {
+        if (Level > sWorld->getIntConfig(CONFIG_MAX_PLAYER_LEVEL))
+            return;
+
         LevelReward const* levelReward = GetLevelReward(Level);
         if (!levelReward)
             return;
 
         ChatHandler handler(player->GetSession());
+        std::string Subject, Text, SelfMessage;
+
+        KargatumMailListItemPairs ListItemPairs;
+        ListItemPairs.push_back(KargatumMailItemPair(levelReward->ItemID, levelReward->ItemCount));        
 
 #ifdef KARGATUM_RUS_LANG
-        handler.PSendSysMessage("Вы повысили уровень до %u и получаете награду!", Level);
+        Subject = sKargatumScript->GetFormatString("Награда за повышение уровня до %u", Level);
+        Text = sKargatumScript->GetFormatString("Вы повысили свой уровень до %u и получаете за это награду!", Level);
+        SelfMessage = sKargatumScript->GetFormatString("Вы повысили уровень до % u и получаете награду!", Level);
 #else
-        handler.PSendSysMessage("You increased level to %u and get a reward!", Level);
+        Subject = sKargatumScript->GetFormatString("Reward for level up to %u", Level);
+        Text = sKargatumScript->GetFormatString("You increased level to %u and get a reward!", Level);
+        SelfMessage = sKargatumScript->GetFormatString("You increased level to %u and get a reward!", Level);
 #endif
-        if (levelReward->Money)
-        {
-            player->ModifyMoney(levelReward->Money);
-
-#ifdef KARGATUM_RUS_LANG
-            handler.PSendSysMessage("Вы получили %s", sKargatumScript->GetMoneyString(levelReward->Money).c_str());
-#else
-            handler.PSendSysMessage("You get %s", sKargatumScript->GetMoneyString(levelReward->Money).c_str());
-#endif
-        }
-
-        if (levelReward->ItemID && levelReward->ItemCount)
-            player->AddItem(levelReward->ItemID, levelReward->ItemCount);
+        handler.PSendSysMessage("%s", SelfMessage.c_str());
+        sKargatumScript->SendMoreItemsMail(player, Subject, Text, levelReward->Money, ListItemPairs);
     }
 };
 

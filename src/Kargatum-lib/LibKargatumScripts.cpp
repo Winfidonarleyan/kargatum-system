@@ -52,4 +52,66 @@ void KargatumScript::SendMailPlayer(Player* player, std::string Subject, std::st
     draft.SendMailTo(trans, player, sender);
     CharacterDatabase.CommitTransaction(trans);
 }
+
+void KargatumScript::SendMoreItemsMail(Player* player, std::string Subject, std::string Text, uint32 Money, KargatumMailListItemPairs& ListItemPairs)
+{
+    if (ListItemPairs.size() > MAX_MAIL_ITEMS)
+    {
+        LOG_ERROR("> KargatumScript::SendMoreItemsMail: ListItemPairs.size() = %u", (uint32)ListItemPairs.size());
+        return;
+    }
+
+    KargatumMailListItemPairs _listItemPairs;
+
+    // check
+    for (auto itr : ListItemPairs)
+    {
+        uint32 ItemID = itr.first;
+        uint32 ItemCount = itr.second;
+
+        ItemTemplate const* item = sObjectMgr->GetItemTemplate(ItemID);
+        if (!item)
+            continue;
+
+        if (ItemCount < 1 || (item->MaxCount > 0 && ItemCount > uint32(item->MaxCount)))
+            continue;
+
+        while (itr.second > item->GetMaxStackSize())
+        {
+            _listItemPairs.push_back(KargatumMailItemPair(ItemID, item->GetMaxStackSize()));
+            ItemCount -= item->GetMaxStackSize();
+        }
+
+        _listItemPairs.push_back(KargatumMailItemPair(ItemID, ItemCount));
+
+        if (_listItemPairs.size() > MAX_MAIL_ITEMS)
+        {
+            LOG_ERROR("> KargatumScript::SendMoreItemsMail: _listItemPairs.size() = %u", (uint32)_listItemPairs.size());
+            break;
+        }
+    }
+
+    // from console show not existed sender
+    MailSender sender(MAIL_NORMAL, player->GetGUIDLow(), MAIL_STATIONERY_DEFAULT);
+
+    SQLTransaction trans = CharacterDatabase.BeginTransaction();
+
+    // fill mail
+    MailDraft draft(Subject, Text);
+
+    for (auto itr : _listItemPairs)
+    {
+        if (Item * item = Item::CreateItem(itr.first, itr.second, player))
+        {
+            item->SaveToDB(trans);                               // save for prevent lost at next mail load, if send fail then item will deleted
+            draft.AddItem(item);
+        }
+    }
+
+    if (Money)
+        draft.AddMoney(Money);
+
+    draft.SendMailTo(trans, player, sender);
+    CharacterDatabase.CommitTransaction(trans);
+}
 #endif

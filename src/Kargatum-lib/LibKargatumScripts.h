@@ -22,6 +22,7 @@ public:
     std::string GetFormatString(const char* format, ...) ATTR_PRINTF(2, 3);
 
     void SendMailPlayer(Player* player, std::string Subject, std::string Text, uint32 ItemEntry, uint32 ItemCount);
+    void SendMoreItemsMail(Player* player, std::string Subject, std::string Text, uint32 Money, KargatumMailListItemPairs& ListItemPairs)
 };
 
 #define sKargatumScript KargatumScript::instance()
