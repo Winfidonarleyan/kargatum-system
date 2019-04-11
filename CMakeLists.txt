@@ -46,10 +46,10 @@ endif()
 AC_ADD_SCRIPT_LOADER("Kargatum" "${CMAKE_CURRENT_LIST_DIR}/src/KargatumSCLoad.h")
 
 # Add config file
-if (NOT KARGATUMCORE OR KARGATUM_RUS_LANG)
-    AC_ADD_CONFIG_FILE("${KARGATUM_CONF_DIR}/KargatumSystem.conf.dist")
-elseif()
-    AC_ADD_CONFIG_FILE("${KARGATUM_CONF_DIR}/KargatumSystem_eng.conf.dist")
+if (NOT KARGATUMCORE AND KARGATUM_RUS_LANG)
+  AC_ADD_CONFIG_FILE("${KARGATUM_CONF_DIR}/KargatumSystem.conf.dist")
+elseif(NOT KARGATUMCORE AND NOT KARGATUM_RUS_LANG)
+  AC_ADD_CONFIG_FILE("${KARGATUM_CONF_DIR}/KargatumSystem_eng.conf.dist")
 endif()
 
 message("-> Loaded custom scripts")
