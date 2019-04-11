@@ -48,7 +48,7 @@ public:
         Player* player = handler->GetSession()->GetPlayer();
 		std::string ArgStr = (char*)args;
 
-		if (ArgStr == "reload" && !AccountMgr::IsAdminAccount(player->GetSession()->GetSecurity()))
+		if (ArgStr == "reload" && AccountMgr::IsAdminAccount(player->GetSession()->GetSecurity()))
 		{
 #ifdef KARGATUM_RUS_LANG
 			sLog->outString("Перезагрузка баффов для команды .buff...");
