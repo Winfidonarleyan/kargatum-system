@@ -3,12 +3,13 @@
  * Licence MIT https://opensource.org/MIT
  */
 
-#ifndef _KARGATUM_LANGUAGE_H
-#define _KARGATUM_LANGUAGE_H
+#ifndef _LIBKARGATUM_LANGUAGE_H
+#define _LIBKARGATUM_LANGUAGE_H
 
+#ifndef KARGATUMCORE
 namespace lang
 {
-    enum KargatumStrings // Локализация
+    enum LibKargatumStrings // Локализация
     {
         // mod-anti-advertisment
         ANTIAD_SEND_GM_TEXT = 50000,
@@ -19,5 +20,6 @@ namespace lang
         RECEIVER_NOT_SPEAK,
     };
 }
+#endif
 
-#endif // _KARGATUM_LANGUAGE_H
+#endif // _LIBKARGATUM_LANGUAGE_H

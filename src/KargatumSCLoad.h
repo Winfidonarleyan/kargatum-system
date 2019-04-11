@@ -6,8 +6,10 @@
 #ifndef _KARGATUM_SCRIPTS_LOADER_H_
 #define _KARGATUM_SCRIPTS_LOADER_H_
 
+#ifndef KARGATUMCORE
 // From Lib
 void AddSC_Kargatum_Startup();
+#endif
 
 // From SC
 void AddSC_Kargatum_AntiAdvertisment();
@@ -25,8 +27,10 @@ void AddSC_Kargatum_SpellDuration();
 // Add all
 void AddKargatumScripts()
 {
+#ifndef KARGATUMCORE
     // Lib
     AddSC_Kargatum_Startup();
+#endif
 
     // SC
     AddSC_Kargatum_AntiAdvertisment();

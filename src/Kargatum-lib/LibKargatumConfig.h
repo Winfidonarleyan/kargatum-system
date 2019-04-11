@@ -3,19 +3,17 @@
  * Licence MIT https://opensource.org/MIT
  */
 
-#ifndef _KARGATUM_CONFIG_H
-#define _KARGATUM_CONFIG_H
+#ifndef _LIBKARGATUM_CONFIG_H
+#define _LIBKARGATUM_CONFIG_H
 
+#ifndef KARGATUMCORE
 #include "Common.h"
 #include "Timer.h"
-
-// Удалите коментарий со следующей строки если хотите русский язык / Add comment for next line for english language
-#define KARGATUM_RUS_LANG
 
 namespace conf
 {
 	/// - Структуры конфига
-	enum KargatumBoolConfigs
+	enum LibKargatumBoolConfigs
 	{
 		// mod-anti-advertisment
 		ANTIAD_ENABLE,
@@ -61,7 +59,7 @@ namespace conf
 		BOOL_VALUE_COUNT
 	};
 
-	enum KargatumFloatConfigs
+	enum LibKargatumFloatConfigs
 	{
 		TEST_CONF_FLOAT,
 
@@ -69,7 +67,7 @@ namespace conf
 		FLOAT_VALUE_COUNT
 	};
 
-	enum KargatumIntConfigs
+	enum LibKargatumIntConfigs
 	{
         // mod-anti-advertisment
         ANTIAD_MUTETIME,
@@ -97,7 +95,7 @@ namespace conf
 		INT_VALUE_COUNT
 	};
 
-	enum KargatumStringConfigs
+	enum LibKargatumStringConfigs
 	{
 		// mod-gm-chat-color
 		GM_CHAT_COLOR_LEVEL_3,
@@ -110,32 +108,32 @@ namespace conf
 
 } // conf
 
-class KargatumConfig
+class LibKargatumConfig
 {
 public:
 
-	static KargatumConfig* instance();
+	static LibKargatumConfig* instance();
 	
 	/// Получить с конфига Bool
-	bool GetBool(conf::KargatumBoolConfigs index) const
+	bool GetBool(conf::LibKargatumBoolConfigs index) const
 	{
 		return index < conf::BOOL_VALUE_COUNT ? m_bool[index] : 0;
 	}
 	
 	/// Получить с конфига Float
-	float GetFloat(conf::KargatumFloatConfigs index) const
+	float GetFloat(conf::LibKargatumFloatConfigs index) const
 	{
 		return index < conf::FLOAT_VALUE_COUNT ? m_float[index] : 0;
 	}
 
 	/// Получить с конфига Int
-	int32 GetInt(conf::KargatumIntConfigs index) const
+	int32 GetInt(conf::LibKargatumIntConfigs index) const
 	{
 		return index < conf::INT_VALUE_COUNT ? m_int[index] : 0;
 	}
 
 	/// Получить с конфига String
-	std::string GetString(conf::KargatumStringConfigs index) const
+	std::string GetString(conf::LibKargatumStringConfigs index) const
 	{
 		return index < conf::STRING_VALUE_COUNT ? m_string[index] : 0;
 	}
@@ -157,11 +155,12 @@ private:
     void SetTimers();
 };
 
-#define sKargatumConfig KargatumConfig::instance()
+#define sKargatumConfig LibKargatumConfig::instance()
 
-#define CONF_BOOL sKargatumConfig->GetBool
-#define CONF_INT sKargatumConfig->GetInt
-#define CONF_STR sKargatumConfig->GetString
-#define CONF_FLOAT sKargatumConfig->GetFloat
+#define CONF_BOOL 	sKargatumConfig->GetBool
+#define CONF_INT 	sKargatumConfig->GetInt
+#define CONF_STR 	sKargatumConfig->GetString
+#define CONF_FLOAT 	sKargatumConfig->GetFloat
+#endif // KARGATUMCORE
 
-#endif // _KARGATUM_CONFIG_H
+#endif // _LIBKARGATUM_CONFIG_H

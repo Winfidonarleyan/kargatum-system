@@ -3,7 +3,14 @@
  * Licence MIT https://opensource.org/MIT
  */
 
-#include "../Kargatum-lib/KargatumConfig.h"
+#ifdef KARGATUMCORE
+#include "KargatumConfig.h"
+#include "KargatumVIP.h"
+#include "KargatumScript.h"
+#else
+#include "LibKargatumConfig.h"
+#endif
+
 #include "ScriptMgr.h"
 #include "Chat.h"
 #include "Player.h"
@@ -29,7 +36,36 @@ public:
         uint32 connPeak                 = sWorld->GetMaxActiveSessionCount();
 
         handler.PSendSysMessage("|cffff0000##############################|r");
-#ifdef KARGATUM_RUS_LANG
+#ifdef KARGATUMCORE
+        uint32 AccountID    = player->GetSession()->GetAccountId();
+        std::string GMlevel = sKargatumScript->GetGMLevelString(player->GetSession());
+        uint32 OpenTickets  = sKargatumScript->GetOpenTicket();
+
+        handler.PSendSysMessage("|cffff0000# |cff00ff00Привет,|r %s", PlayerName.c_str());
+
+        if (player->GetSession()->GetSecurity() >= SEC_MODERATOR)
+            handler.PSendSysMessage("|cffff0000# |cff00ff00Ваш уровень доступа:|r %s", GMlevel.c_str());
+
+        handler.PSendSysMessage("|cffff0000# |cff00ff00Ваш IP:|r %s", PlayerIP.c_str());
+        handler.PSendSysMessage("|cffff0000# |cff00ff00Сейчас|r %u |cff00ff00игроков онлайн|r |cff00ff00(максимум:|r %u|cff00ff00)|r", PlayerOnlineCount, connPeak);
+        handler.PSendSysMessage("|cffff0000# |cff00ff00Время работы сервера:|r %s", ServerUptime.c_str());
+
+        if (player->GetSession()->GetSecurity() >= SEC_MODERATOR)
+            handler.PSendSysMessage("|cffff0000# |cff00ff00Открытые тикеты:|r %u", OpenTickets);
+
+        if (player->GetSession()->IsVIP())
+        {
+            uint32 unsetdate = kVIP->GetUnSetDate(AccountID);
+            std::string timeStr = secsToTimeString(unsetdate - time(nullptr), false, false);
+
+            handler.PSendSysMessage("|cffff0000#|cff00ff00 Статус премиум аккаунта:|r |cff14ECCFИмеет премиум доступ");
+            handler.PSendSysMessage("|cFFFF0000# |cff00ff00Премиум аккаунт закончится через|r %s", timeStr.c_str());
+        }
+        else
+            handler.PSendSysMessage("|cffff0000#|cff00ff00 Статус премиум аккаунта:|r |cff14ECCFНе имеет премиум доступа");
+#endif
+
+#if KARGATUM_RUS_LANG && !KARGATUMCORE
         handler.PSendSysMessage("|cffff0000# |cff00ff00Привет,|r %s", PlayerName.c_str());
 
         if (GMLevel)
@@ -38,7 +74,7 @@ public:
         handler.PSendSysMessage("|cffff0000# |cff00ff00Ваш IP:|r %s", PlayerIP.c_str());
         handler.PSendSysMessage("|cffff0000# |cff00ff00Сейчас|r %u |cff00ff00игроков онлайн|r |cff00ff00(максимум:|r %u|cff00ff00)|r", PlayerOnlineCount, connPeak);
         handler.PSendSysMessage("|cffff0000# |cff00ff00Время работы сервера:|r %s", ServerUptime.c_str());
-#else
+#elif !KARGATUM_RUS_LANG && !KARGATUMCORE
         handler.PSendSysMessage("|cffff0000# |cff00ff00Hi,|r %s", PlayerName.c_str());
 
         if (GMLevel)

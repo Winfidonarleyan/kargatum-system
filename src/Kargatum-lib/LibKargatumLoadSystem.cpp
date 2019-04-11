@@ -3,21 +3,22 @@
  * Licence MIT https://opensource.org/MIT
  */
 
-#include "KargatumLoadSystem.h"
-#include "KargatumConfig.h"
+#ifndef KARGATUMCORE
+#include "LibKargatumLoadSystem.h"
+#include "LibKargatumConfig.h"
 #include "Log.h"
 #include "World.h"
 #include "ObjectMgr.h"
 #include "DBCStores.h"
 #include "DatabaseEnv.h"
 
-KargatumLoad* KargatumLoad::instance()
+LibKargatumLoad* LibKargatumLoad::instance()
 {
-    static KargatumLoad instance;
+    static LibKargatumLoad instance;
     return &instance;
 }
 
-void KargatumLoad::LoadMessageAntiAD()
+void LibKargatumLoad::LoadMessageAntiAD()
 {
 	uint32 oldMSTime = getMSTime();
 
@@ -50,7 +51,7 @@ void KargatumLoad::LoadMessageAntiAD()
 	sLog->outString();
 }
 
-void KargatumLoad::LoadBuffData()
+void LibKargatumLoad::LoadBuffData()
 {
 	uint32 oldMSTime = getMSTime();
 
@@ -98,7 +99,7 @@ void KargatumLoad::LoadBuffData()
 }
 
 /*
-void KargatumLoad::LoadLevelUPItem()
+void LibKargatumLoad::LoadLevelUPItem()
 {
 	uint32 oldMSTime = getMSTime();
 
@@ -156,7 +157,7 @@ void KargatumLoad::LoadLevelUPItem()
 	sLog->outString();
 }*/
 
-void KargatumLoad::LoadPlayedTimeReward()
+void LibKargatumLoad::LoadPlayedTimeReward()
 {
     uint32 msTime = getMSTime();
     _RewardPlayedTimeStore.clear();
@@ -227,7 +228,7 @@ void KargatumLoad::LoadPlayedTimeReward()
     sLog->outString();
 }
 
-void KargatumLoad::LoadLevelReward()
+void LibKargatumLoad::LoadLevelReward()
 {
     uint32 msTime = getMSTime();
     _levelRewardStore.clear();
@@ -304,7 +305,7 @@ void KargatumLoad::LoadLevelReward()
     sLog->outString();
 }
 
-void KargatumLoad::LoadKargatumSystem()
+void LibKargatumLoad::LoadKargatumSystem()
 {
     if (CONF_BOOL(conf::BUFF_COMMAND_ENABLE))
     {
@@ -355,3 +356,4 @@ void KargatumLoad::LoadKargatumSystem()
         this->LoadLevelReward();
     }
 }
+#endif

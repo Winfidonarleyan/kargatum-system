@@ -3,13 +3,26 @@
  * Licence MIT https://opensource.org/MIT
  */
 
-#include "../Kargatum-lib/KargatumConfig.h"
-#include "../Kargatum-lib/KargatumLoadSystem.h"
-#include "../Kargatum-lib/KargatumScripts.h"
+#ifdef KARGATUMCORE
+#include "KargatumConfig.h"
+#include "KargatumLoadSystem.h"
+#include "KargatumScript.h"
+#else
+#include "LibKargatumConfig.h"
+#include "LibKargatumLoadSystem.h"
+#include "LibKargatumScripts.h"
+#endif
+
 #include "ScriptMgr.h"
 #include "DatabaseEnv.h"
 #include "Chat.h"
 #include "Player.h"
+
+#ifdef KARGATUMCORE
+#define MODULE_DB KargatumDatabase
+#else
+#define MODULE_DB WorldDatabase
+#endif
 
 class KargatumOnlineReward : public PlayerScript
 {
@@ -163,11 +176,11 @@ public:
                 StrReward.erase(StrReward.end() - 1, StrReward.end());
 
             if (StrReward.size() > 0)
-                WorldDatabase.PExecute("UPDATE `online_reward_history` SET `Rewarded` = '%s' WHERE `PlayedGuid` = %u", StrReward.c_str(), PlayerGuid);
+                MODULE_DB.PExecute("UPDATE `online_reward_history` SET `Rewarded` = '%s' WHERE `PlayedGuid` = %u", StrReward.c_str(), PlayerGuid);
         }
         else
             if (_LastRewardTimePerHourStore[PlayerGuid])
-                WorldDatabase.PExecute("UPDATE `online_reward_history` SET `RewardedPerHour` = %u WHERE `PlayedGuid` = %u", _LastRewardTimePerHourStore[PlayerGuid], PlayerGuid);
+                MODULE_DB.PExecute("UPDATE `online_reward_history` SET `RewardedPerHour` = %u WHERE `PlayedGuid` = %u", _LastRewardTimePerHourStore[PlayerGuid], PlayerGuid);
     }
 
     void LoadRewardFromDB(Player* player, bool IsDefault)
@@ -175,18 +188,18 @@ public:
         uint64 PlayerGuid = player->GetGUID();
         bool IsExistDB = true;
 
-        QueryResult result = WorldDatabase.PQuery("SELECT * FROM `online_reward_history` WHERE `PlayedGuid` = %u", PlayerGuid);
+        QueryResult result = MODULE_DB.PQuery("SELECT * FROM `online_reward_history` WHERE `PlayedGuid` = %u", PlayerGuid);
         if (!result)
             IsExistDB = false;
 
         if (!IsExistDB)
-            WorldDatabase.PExecute("INSERT INTO `online_reward_history`(`PlayedGuid`) VALUES (%u)", PlayerGuid);
+            MODULE_DB.PExecute("INSERT INTO `online_reward_history`(`PlayedGuid`) VALUES (%u)", PlayerGuid);
 
         if (IsDefault && IsExistDB)
         {
             std::string ParamRewarded;
 
-            QueryResult result = WorldDatabase.PQuery("SELECT Rewarded FROM `online_reward_history` WHERE `PlayedGuid` = %u", PlayerGuid);
+            QueryResult result = MODULE_DB.PQuery("SELECT Rewarded FROM `online_reward_history` WHERE `PlayedGuid` = %u", PlayerGuid);
             if (result)
                 ParamRewarded = result->Fetch()->GetString();
 
@@ -200,7 +213,7 @@ public:
         {
             uint32 LasRewardPerHour = 0;
 
-            QueryResult result = WorldDatabase.PQuery("SELECT RewardedPerHour FROM `online_reward_history` WHERE `PlayedGuid` = %u", PlayerGuid);
+            QueryResult result = MODULE_DB.PQuery("SELECT RewardedPerHour FROM `online_reward_history` WHERE `PlayedGuid` = %u", PlayerGuid);
             if (result)
                 LasRewardPerHour = result->Fetch()->GetUInt32();
 

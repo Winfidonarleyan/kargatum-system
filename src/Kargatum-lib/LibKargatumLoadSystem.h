@@ -3,9 +3,10 @@
  * Licence MIT https://opensource.org/MIT
  */
 
-#ifndef KARGATUM_LOAD_H
-#define KARGATUM_LOAD_H
+#ifndef LIBKARGATUM_LOAD_H
+#define LIBKARGATUM_LOAD_H
 
+#ifndef KARGATUMCORE
 #include "Common.h"
 #include <vector>
 #include <map>
@@ -35,11 +36,11 @@ enum TypeReward
     REWARD_PER_HOUR
 };
 
-class KargatumLoad
+class LibKargatumLoad
 {
 public:
 	
-	static KargatumLoad* instance();
+	static LibKargatumLoad* instance();
     
     void LoadKargatumSystem();    
 	void LoadMessageAntiAD();	
@@ -69,6 +70,7 @@ private:
     LevelRewardContainer _levelRewardStore;
 };
 
-#define sKargatumLoad KargatumLoad::instance()
+#define sKargatumLoad LibKargatumLoad::instance()
+#endif // KARGATUMCORE
 
-#endif // KARGATUM_LOAD_H
+#endif // LIBKARGATUM_LOAD_H

@@ -3,9 +3,16 @@
  * Licence MIT https://opensource.org/MIT
  */
 
-#include "../Kargatum-lib/KargatumConfig.h"
-#include "../Kargatum-lib/KargatumLoadSystem.h"
-#include "../Kargatum-lib/KargatumLanguage.h"
+#ifdef KARGATUMCORE
+#include "KargatumConfig.h"
+#include "KargatumLoadSystem.h"
+#include "KargatumLanguage.h"
+#else
+#include "LibKargatumConfig.h"
+#include "LibKargatumLoadSystem.h"
+#include "LibKargatumLanguage.h"
+#endif
+
 #include "ScriptMgr.h"
 #include "AccountMgr.h"
 #include "Chat.h"

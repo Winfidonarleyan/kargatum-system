@@ -3,17 +3,18 @@
  * Licence MIT https://opensource.org/MIT
  */
 
-#include "KargatumScripts.h"
+#ifndef KARGATUMCORE
+#include "LibKargatumScripts.h"
 #include "DatabaseEnv.h"
 #include "Player.h"
 
-KargatumScript* KargatumScript::instance()
+LibKargatumScript* LibKargatumScript::instance()
 {
-    static KargatumScript instance;
+    static LibKargatumScript instance;
     return &instance;
 }
 
-std::string KargatumScript::GetMoneyString(uint32 Gold)
+std::string LibKargatumScript::GetMoneyString(uint32 Gold)
 {
     uint32 gold = Gold / GOLD;
     uint32 silv = (Gold % GOLD) / SILVER;
@@ -22,7 +23,7 @@ std::string KargatumScript::GetMoneyString(uint32 Gold)
     return this->GetFormatString("%u|TInterface\\MoneyFrame\\UI-GoldIcon:0:0:2:0|t %u|TInterface\\MoneyFrame\\UI-SilverIcon:0:0:2:0|t %u|TInterface\\MoneyFrame\\UI-CopperIcon:0:0:2:0|t", gold, silv, copp);
 }
 
-std::string KargatumScript::GetFormatString(const char* format, ...)
+std::string LibKargatumScript::GetFormatString(const char* format, ...)
 {
     va_list ap;
     char str[2048];
@@ -32,7 +33,7 @@ std::string KargatumScript::GetFormatString(const char* format, ...)
     return std::string(str);
 }
 
-void KargatumScript::SendMailPlayer(Player* player, std::string Subject, std::string Text, uint32 ItemEntry, uint32 ItemCount)
+void LibKargatumScript::SendMailPlayer(Player* player, std::string Subject, std::string Text, uint32 ItemEntry, uint32 ItemCount)
 {
     // from console show not existed sender
     MailSender sender(MAIL_NORMAL, player->GetGUIDLow(), MAIL_STATIONERY_DEFAULT);
@@ -51,3 +52,4 @@ void KargatumScript::SendMailPlayer(Player* player, std::string Subject, std::st
     draft.SendMailTo(trans, player, sender);
     CharacterDatabase.CommitTransaction(trans);
 }
+#endif

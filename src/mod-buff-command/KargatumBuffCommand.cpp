@@ -3,8 +3,14 @@
  * Licence MIT https://opensource.org/MIT
  */
 
-#include "../Kargatum-lib/KargatumConfig.h"
-#include "../Kargatum-lib/KargatumLoadSystem.h"
+#ifdef KARGATUMCORE
+#include "KargatumConfig.h"
+#include "KargatumLoadSystem.h"
+#else
+#include "LibKargatumConfig.h"
+#include "LibKargatumLoadSystem.h"
+#endif
+
 #include "ScriptMgr.h"
 #include "AccountMgr.h"
 #include "Player.h"
@@ -71,9 +77,19 @@ public:
 			player->RemoveAurasByType(SPELL_AURA_MOUNTED);
 
 			KargatumLoad::BuffDataContainer& buffStore = sKargatumLoad->GetBuffData();
-			for (auto i : buffStore)
-				player->CastSpell(player, i, true);
 
+#ifdef KARGATUMCORE
+            for (auto i : buffStore)
+            {
+                if (!player->GetSession()->IsVIP() && i.second)
+                    continue;
+
+                player->CastSpell(player, i.first, true);
+            }
+#else
+            for (auto i : buffStore)
+                player->CastSpell(player, i, true);
+#endif
 			return true;
 		}
 	}

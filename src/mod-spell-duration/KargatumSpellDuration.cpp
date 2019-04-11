@@ -3,8 +3,16 @@
  * Licence MIT https://opensource.org/MIT
  */
 
-#include "../Kargatum-lib/KargatumConfig.h"
-#include "../Kargatum-lib/KargatumLoadSystem.h"
+#ifdef KARGATUMCORE
+#include "KargatumConfig.h"
+#include "KargatumLoadSystem.h"
+#include "KargatumScript.h"
+#else
+#include "LibKargatumConfig.h"
+#include "LibKargatumLoadSystem.h"
+#include "LibKargatumScripts.h"
+#endif
+
 #include "ScriptMgr.h"
 
 class KargatumSpellDuration : public PlayerScript

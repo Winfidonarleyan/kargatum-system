@@ -3,7 +3,12 @@
  * Licence MIT https://opensource.org/MIT
  */
 
-#include "../Kargatum-lib/KargatumConfig.h"
+#ifdef KARGATUMCORE
+#include "KargatumConfig.h"
+#else
+#include "LibKargatumConfig.h"
+#endif
+
 #include "ScriptMgr.h"
 #include "AccountMgr.h"
 #include "Chat.h"
@@ -20,13 +25,25 @@ public:
         if (!CONF_BOOL(conf::GM_CHAT_COLOR_ENABLE))
             return;
 
-        if (player->isGMChat() && !Message.empty() && player->GetSession()->GetSecurity() >= 3)
+        if (AccountMgr::IsPlayerAccount(player->GetSession()->GetSecurity()) || !player->isGMChat() || Message.empty())
+            return;
+#ifdef KARGATUMCORE
+        if (player->GetSession()->GetSecurity() == SEC_CONSOLE)
+            Message = CONF_STR(conf::GM_CHAT_COLOR_LEVEL_6) + Message;
+
+        if (player->GetSession()->GetSecurity() == SEC_DEVELOPER)
+            Message = CONF_STR(conf::GM_CHAT_COLOR_LEVEL_5) + Message;
+#endif
+        if (player->GetSession()->GetSecurity() == 4)
+            Message = CONF_STR(conf::GM_CHAT_COLOR_LEVEL_4) + Message;
+
+        if (player->GetSession()->GetSecurity() == 3)
             Message = CONF_STR(conf::GM_CHAT_COLOR_LEVEL_3) + Message;
 
-        if (player->isGMChat() && !Message.empty() && player->GetSession()->GetSecurity() == 2)
+        if (player->GetSession()->GetSecurity() == 2)
             Message = CONF_STR(conf::GM_CHAT_COLOR_LEVEL_2) + Message;
 
-        if (player->isGMChat() && !Message.empty() && player->GetSession()->GetSecurity() == 1)
+        if (player->GetSession()->GetSecurity() == 1)
             Message = CONF_STR(conf::GM_CHAT_COLOR_LEVEL_1) + Message;
     };
 

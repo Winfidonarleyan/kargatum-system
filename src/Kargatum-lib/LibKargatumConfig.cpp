@@ -3,19 +3,20 @@
  * Licence MIT https://opensource.org/MIT
  */
 
-#include "KargatumConfig.h"
-#include "KargatumLoadSystem.h"
+#ifndef KARGATUMCORE
+#include "LibKargatumConfig.h"
+#include "LibKargatumLoadSystem.h"
 #include "Config.h"
 #include "Log.h"
 #include "ScriptMgr.h"
 
-KargatumConfig* KargatumConfig::instance()
+LibKargatumConfig* LibKargatumConfig::instance()
 {
-    static KargatumConfig instance;
+    static LibKargatumConfig instance;
     return &instance;
 }
 
-void KargatumConfig::LoadConfig()
+void LibKargatumConfig::LoadConfig()
 {
 #ifdef KARGATUM_RUS_LANG
     sLog->outString("Загрузка кастомной конфигурации");
@@ -90,7 +91,7 @@ void KargatumConfig::LoadConfig()
     this->SetTimers();
 }
 
-void KargatumConfig::CheckConfigOption()
+void LibKargatumConfig::CheckConfigOption()
 {
     sLog->outString();
     
@@ -117,7 +118,7 @@ void KargatumConfig::CheckConfigOption()
 #endif
 }
 
-void KargatumConfig::SetTimers()
+void LibKargatumConfig::SetTimers()
 {
     _UpdateTimerOnlineReward.SetInterval(m_int[conf::ONLINE_REWARD_TIME_CHECK] * IN_MILLISECONDS);
 }
@@ -142,5 +143,5 @@ void AddSC_Kargatum_Startup()
 {
     new KargatumStartSystem();
 }
-
+#endif
 

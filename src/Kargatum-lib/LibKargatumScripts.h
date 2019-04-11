@@ -3,16 +3,17 @@
  * Licence MIT https://opensource.org/MIT
  */
 
-#ifndef KARGATUM_SCRIPT_H
-#define KARGATUM_SCRIPT_H
+#ifndef LIBKARGATUM_SCRIPT_H
+#define LIBKARGATUM_SCRIPT_H
 
+#ifndef KARGATUMCORE
 #include "Common.h"
 #include "Player.h"
 
-class KargatumScript
+class LibKargatumScript
 {
 public:
-    static KargatumScript* instance();
+    static LibKargatumScript* instance();
 
     std::string GetMoneyString(uint32 Gold);
     std::string GetFormatString(const char* format, ...) ATTR_PRINTF(2, 3);
@@ -20,6 +21,7 @@ public:
     void SendMailPlayer(Player* player, std::string Subject, std::string Text, uint32 ItemEntry, uint32 ItemCount);
 };
 
-#define sKargatumScript KargatumScript::instance()
+#define sKargatumScript LibKargatumScript::instance()
+#endif // KARGATUMCORE
 
-#endif
+#endif // LIBKARGATUM_SCRIPT_H
