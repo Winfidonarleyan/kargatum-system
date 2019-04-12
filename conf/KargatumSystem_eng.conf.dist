@@ -186,7 +186,6 @@ GM.Chat.Color.Enable = 1
 GM.Chat.Color.Level.3 = "|cffff0000"
 GM.Chat.Color.Level.2 = "|cff0000ff"
 GM.Chat.Color.Level.1 = "|cff0000ff"
-
 ###################################################################################################
 
 ###################################################################################################
@@ -218,28 +217,38 @@ NotCanSpeak.Msg.Enable = 1
 #        Description: Enable online reward.
 #        Default: 1
 #
-#    Online.Reward.Type
-#        Description: Reward online type. 1 - Default (playing second), 2 - per hour.
+#    Online.Reward.Per.Online.Enable
+#        Description: Enable reward type per online.
 #        Default: 1
 #
-#    Online.Reward.Type.Per.Hour.ItemID
-#        Description: Reward item number at type # 2.
-#        Default: 40265
-#
-#    Online.Reward.Type.Per.Hour.Item.Count
-#        Description: Reward item count at type # 2.
+#    Online.Reward.Per.Time.Enable
+#        Description: Enable reward type per time.
 #        Default: 1
 #
-#    Online.Reward.Time.Check
-#        Description: Time check for system.
-#        Default: 10
+#    Online.Reward.Per.Time.Time
+#        Description: Interval time for reward type per time. In seconds
+#        Default: 3600 (1 hour)
+#
+#    Online.Reward.Per.Time.ItemID
+#        Description: Reward itemid for reward type per time.
+#        Default: 47241
+#
+#    Online.Reward.Per.Time.Item.Count
+#        Description: Reward item count for reward type per time.
+#        Default: 1
+#
+#    Online.Reward.Check.Time
+#        Description: Time, for check reward in seconds.
+#        Default: 60 (1 minute)
 #
 
 Online.Reward.Enable = 1
-Online.Reward.Type = 1
-Online.Reward.Type.Per.Hour.ItemID = 40265
-Online.Reward.Type.Per.Hour.Item.Count = 1
-Online.Reward.Time.Check = 10
+Online.Reward.Per.Online.Enable = 1
+Online.Reward.Per.Time.Enable = 1
+Online.Reward.Per.Time.Time = 3600
+Online.Reward.Per.Time.ItemID = 47241
+Online.Reward.Per.Time.Item.Count = 1
+Online.Reward.Check.Time = 60
 ###################################################################################################
 
 ###################################################################################################

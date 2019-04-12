@@ -70,10 +70,12 @@ void KargatumConfig::LoadConfig()
 
     // mod-online-reward
     m_bool[conf::ONLINE_REWARD_ENABLE]                          = sConfigMgr->GetBoolDefault("Online.Reward.Enable", true);
-    m_int[conf::ONLINE_REWARD_TYPE]                             = sConfigMgr->GetIntDefault("Online.Reward.Type", 0);
-    m_int[conf::ONLINE_REWARD_TYPE_PER_HOUR_ITEMID]             = sConfigMgr->GetIntDefault("Online.Reward.Type.Per.Hour.ItemID", 40265);
-    m_int[conf::ONLINE_REWARD_TYPE_PER_HOUR_ITEM_COUNT]         = sConfigMgr->GetIntDefault("Online.Reward.Type.Per.Hour.Item.Count", 1);
-    m_int[conf::ONLINE_REWARD_TIME_CHECK]                       = sConfigMgr->GetIntDefault("Online.Reward.Time.Check", 60000);
+    m_bool[conf::ONLINE_REWARD_PER_ONLINE_ENABLE]               = sConfigMgr->GetBoolDefault("Online.Reward.Per.Online.Enable", true);
+    m_bool[conf::ONLINE_REWARD_PER_TIME_ENABLE]                 = sConfigMgr->GetBoolDefault("Online.Reward.Per.Time.Enable", true);
+    m_int[conf::ONLINE_REWARD_PER_TIME_TIME]                    = sConfigMgr->GetIntDefault("Online.Reward.Per.Time.Time", 300);
+    m_int[conf::ONLINE_REWARD_TYPE_PER_HOUR_ITEMID]             = sConfigMgr->GetIntDefault("Online.Reward.Per.Time.ItemID", 40265);
+    m_int[conf::ONLINE_REWARD_TYPE_PER_HOUR_ITEM_COUNT]         = sConfigMgr->GetIntDefault("Online.Reward.Per.Time.Item.Count", 1);
+    m_int[conf::ONLINE_REWARD_TIME_CHECK]                       = sConfigMgr->GetIntDefault("Online.Reward.Check.Time", 60000);
 
     // mod-player-login
     m_bool[conf::PLAYER_INFO_LOGIN_ENABLE]                      = sConfigMgr->GetBoolDefault("Player.Info.Login.Enable", true);
@@ -101,14 +103,14 @@ void KargatumConfig::CheckConfigOption()
     sLog->outString("Start check custom configuration");
 #endif
 
-    if (m_int[conf::ONLINE_REWARD_TIME_CHECK] < 5 * IN_MILLISECONDS)
+    if (m_int[conf::ONLINE_REWARD_TIME_CHECK] < 10)
     {
 #ifdef KARGATUM_RUS_LANG
         sLog->outString("-> Время для проверки награды очень мало (%u секунд). Установлено по умолчанию 60 секунд.", m_int[conf::ONLINE_REWARD_TIME_CHECK]);
 #else
         sLog->outString("-> Time for check reward very small (%u secs). Set 60 sec.", m_int[conf::ONLINE_REWARD_TIME_CHECK]);
 #endif        
-        m_int[conf::ONLINE_REWARD_TIME_CHECK] = 60 * IN_MILLISECONDS;
+        m_int[conf::ONLINE_REWARD_TIME_CHECK] = 60;
     }
     
 #ifdef KARGATUM_RUS_LANG

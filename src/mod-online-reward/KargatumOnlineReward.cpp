@@ -34,29 +34,45 @@ public:
         if (!CONF_BOOL(conf::ONLINE_REWARD_ENABLE))
             return;
 
-        TypeReward TR = TypeReward(CONF_INT(conf::ONLINE_REWARD_TYPE));
-
         UpdateTimer.Update(p_time);
 
         if (UpdateTimer.Passed())
         {
-            switch (TR)
-            {
-            case DEFAULT_REWARD:
-                this->RewardDefault(player);
-                break;
-            case REWARD_PER_HOUR:
-                this->RewardPerHour(player);
-                break;
-            default:
-                break;
-            }           
+            if (CONF_BOOL(conf::ONLINE_REWARD_PER_ONLINE_ENABLE))
+                this->RewardPerOnline(player);
+
+            if (CONF_BOOL(conf::ONLINE_REWARD_PER_TIME_ENABLE))
+                this->RewardPerTime(player);
 
             UpdateTimer.Reset();
         }
     }
 
-    void RewardDefault(Player* player)
+    void OnLogin(Player* player) override
+    {
+        if (!CONF_BOOL(conf::ONLINE_REWARD_ENABLE))
+            return;
+
+        if (CONF_BOOL(conf::ONLINE_REWARD_PER_ONLINE_ENABLE))
+            this->LoadRewardFromDB(player, true);
+
+        if (CONF_BOOL(conf::ONLINE_REWARD_PER_TIME_ENABLE))
+            this->LoadRewardFromDB(player, false);
+    }
+
+    void OnLogout(Player* player) override
+    {
+        if (!CONF_BOOL(conf::ONLINE_REWARD_ENABLE))
+            return;
+
+        if (CONF_BOOL(conf::ONLINE_REWARD_PER_ONLINE_ENABLE))
+            _lastrewardtimestore.erase(player->GetGUID());
+
+        if (CONF_BOOL(conf::ONLINE_REWARD_PER_TIME_ENABLE))
+            _LastRewardTimePerTimeStore.erase(player->GetGUID());
+    }
+private:
+    void RewardPerOnline(Player* player)
     {
         ChatHandler handler(player->GetSession());
         uint32 PlayedTimeSec = player->GetTotalPlayedTime();
@@ -68,9 +84,7 @@ public:
             auto Seconds = itr.first;
             auto ItemID = itr.second.ItemID;
             auto Count = itr.second.Count;
-            bool IsCompleteReward = false;
-
-            std::string PlayedTimeSecStr = secsToTimeString(Seconds);
+            bool IsCompleteReward = false;            
 
             if (IsRewardedPlayer(PlayerGuid, Seconds))
                 continue;
@@ -80,15 +94,25 @@ public:
 
             if (IsCompleteReward)
             {
+                ChatHandler handler(player->GetSession());
+                std::string Subject, Text, SelfMessage;
+                std::string PlayedTimeSecStr = secsToTimeString(Seconds);
+
+                KargatumMailListItemPairs ListItemPairs;
+                ListItemPairs.push_back(KargatumMailItemPair(ItemID, Count));
+
 #ifdef KARGATUM_RUS_LANG
-                std::string Text = sKargatumScript->GetFormatString("Привет, %s!\nВы играете на нашем сервере уже более %s. Пожалуйста примите подарок", player->GetName().c_str(), PlayedTimeSecStr.c_str());
-                sKargatumScript->SendMailPlayer(player, "Награда за онлайн на сервере", Text, ItemID, Count);
-                handler.PSendSysMessage("Вы были вознаграждены за онлайн. Получить награду можно на почте.");
+                Subject = sKargatumScript->GetFormatString("Награда за онлайн %s", PlayedTimeSecStr.c_str());
+                Text = sKargatumScript->GetFormatString("Привет, %s!\nВы играете на нашем сервере уже более %s. Пожалуйста примите подарок", player->GetName().c_str(), PlayedTimeSecStr.c_str());
+                SelfMessage = sKargatumScript->GetFormatString("Вы были вознаграждены за онлайн (%s). Получить награду можно на почте.", PlayedTimeSecStr.c_str());
 #else
-                std::string Text = sKargatumScript->GetFormatString("Hi, %s!\nYou play on our server already more %s. Please accept gift", player->GetName().c_str(), PlayedTimeSecStr.c_str());
-                sKargatumScript->SendMailPlayer(player, "Reward for online in world", Text, ItemID, Count);
-                handler.PSendSysMessage("You were rewarded for online. You can get the award at the post office.");
+                Subject = sKargatumScript->GetFormatString("Reward for online %s", PlayedTimeSecStr.c_str());
+                Text = sKargatumScript->GetFormatString("Привет, %s!\nВы играете на нашем сервере уже более %s. Пожалуйста примите подарок", player->GetName().c_str(), PlayedTimeSecStr.c_str());
+                SelfMessage = sKargatumScript->GetFormatString("You were rewarded for online (%s). You can get the award at the post office.", PlayedTimeSecStr.c_str());
 #endif
+                handler.PSendSysMessage("%s", SelfMessage.c_str());
+                sKargatumScript->SendMoreItemsMail(player, Subject, Text, 0, ListItemPairs);
+
                 _lastrewardtimestore[PlayerGuid].push_back(Seconds);
             }
         }
@@ -96,72 +120,54 @@ public:
         this->SaveRewardDB(player, true);
     }
 
-    void RewardPerHour(Player* player)
+    void RewardPerTime(Player* player)
     {
         ChatHandler handler(player->GetSession());
         uint32 PlayedTimeSec = player->GetTotalPlayedTime();
         uint64 PlayerGuid = player->GetGUID();
         uint32 ItemID = CONF_INT(conf::ONLINE_REWARD_TYPE_PER_HOUR_ITEMID);
         uint32 Count = CONF_INT(conf::ONLINE_REWARD_TYPE_PER_HOUR_ITEM_COUNT);
-        uint32 TimeHour = HOUR;
-        uint32 LastReward = _LastRewardTimePerHourStore[PlayerGuid];
+        uint32 ConfPerTime = CONF_INT(conf::ONLINE_REWARD_PER_TIME_TIME);
+        uint32 LastReward = _LastRewardTimePerTimeStore[PlayerGuid];
         uint32 DiffTime = 0;
 
         while (DiffTime < PlayedTimeSec)
         {
             if (LastReward < DiffTime)
             {
-                player->AddItem(ItemID, Count);
-                _LastRewardTimePerHourStore[PlayerGuid] = DiffTime;
+                ChatHandler handler(player->GetSession());
+                std::string Subject, Text, SelfMessage;
+                std::string PlayedTimeSecStr = secsToTimeString(DiffTime);
+
+                KargatumMailListItemPairs ListItemPairs;
+                ListItemPairs.push_back(KargatumMailItemPair(ItemID, Count));
+
+#ifdef KARGATUM_RUS_LANG
+                Subject = sKargatumScript->GetFormatString("Награда за онлайн %s", PlayedTimeSecStr.c_str());
+                Text = sKargatumScript->GetFormatString("Привет, %s!\nВы играете на нашем сервере уже более %s. Пожалуйста примите подарок", player->GetName().c_str(), PlayedTimeSecStr.c_str());
+                SelfMessage = sKargatumScript->GetFormatString("Вы были вознаграждены за онлайн (%s). Получить награду можно на почте.", PlayedTimeSecStr.c_str());
+#else
+                Subject = sKargatumScript->GetFormatString("Reward for online %s", PlayedTimeSecStr.c_str());
+                Text = sKargatumScript->GetFormatString("Привет, %s!\nВы играете на нашем сервере уже более %s. Пожалуйста примите подарок", player->GetName().c_str(), PlayedTimeSecStr.c_str());
+                SelfMessage = sKargatumScript->GetFormatString("You were rewarded for online (%s). You can get the award at the post office.", PlayedTimeSecStr.c_str());
+#endif
+                handler.PSendSysMessage("%s", SelfMessage.c_str());
+                sKargatumScript->SendMoreItemsMail(player, Subject, Text, 0, ListItemPairs);
+
+                _LastRewardTimePerTimeStore[PlayerGuid] = DiffTime;
             }
 
-            DiffTime += TimeHour;
+            DiffTime += ConfPerTime;
         }
 
         this->SaveRewardDB(player, false);
     }
 
-    void OnLogin(Player* player) override
-    {
-        if (!CONF_BOOL(conf::ONLINE_REWARD_ENABLE))
-            return;
-
-        switch (CONF_INT(conf::ONLINE_REWARD_TYPE))
-        {
-        case DEFAULT_REWARD:
-            this->LoadRewardFromDB(player, true);
-            break;
-        case REWARD_PER_HOUR:
-            this->LoadRewardFromDB(player, false);
-            break;
-        default:
-            break;
-        }
-    }
-
-    void OnLogout(Player* player) override
-    {
-        if (!CONF_BOOL(conf::ONLINE_REWARD_ENABLE))
-            return;
-
-        switch (CONF_INT(conf::ONLINE_REWARD_TYPE))
-        {
-        case DEFAULT_REWARD:
-            _lastrewardtimestore.erase(player->GetGUID());
-            break;
-        case REWARD_PER_HOUR:
-            _LastRewardTimePerHourStore.erase(player->GetGUID());
-            break;
-        default:
-            break;
-        }
-    }
-
-    void SaveRewardDB(Player* player, bool IsDefault)
+    void SaveRewardDB(Player* player, bool IsPerOnline)
     {
         uint64 PlayerGuid = player->GetGUID();
 
-        if (IsDefault)
+        if (IsPerOnline)
         {
             std::ostringstream ssRewarded;
             LastRewardTimeContainer::const_iterator itr = _lastrewardtimestore.find(PlayerGuid);
@@ -179,11 +185,11 @@ public:
                 MODULE_DB.PExecute("UPDATE `online_reward_history` SET `Rewarded` = '%s' WHERE `PlayedGuid` = %u", StrReward.c_str(), PlayerGuid);
         }
         else
-            if (_LastRewardTimePerHourStore[PlayerGuid])
-                MODULE_DB.PExecute("UPDATE `online_reward_history` SET `RewardedPerHour` = %u WHERE `PlayedGuid` = %u", _LastRewardTimePerHourStore[PlayerGuid], PlayerGuid);
+            if (_LastRewardTimePerTimeStore[PlayerGuid])
+                MODULE_DB.PExecute("UPDATE `online_reward_history` SET `RewardedPerHour` = %u WHERE `PlayedGuid` = %u", _LastRewardTimePerTimeStore[PlayerGuid], PlayerGuid);
     }
 
-    void LoadRewardFromDB(Player* player, bool IsDefault)
+    void LoadRewardFromDB(Player* player, bool IsPerOnline)
     {
         uint64 PlayerGuid = player->GetGUID();
         bool IsExistDB = true;
@@ -195,7 +201,7 @@ public:
         if (!IsExistDB)
             MODULE_DB.PExecute("INSERT INTO `online_reward_history`(`PlayedGuid`) VALUES (%u)", PlayerGuid);
 
-        if (IsDefault && IsExistDB)
+        if (IsPerOnline && IsExistDB)
         {
             std::string ParamRewarded;
 
@@ -209,7 +215,7 @@ public:
             for (uint8 i = 0; i < tokens.size(); )
                 _lastrewardtimestore[PlayerGuid].push_back(atoi(tokens[i++]));
         }
-        else if (!IsDefault && IsExistDB)
+        else if (!IsPerOnline && IsExistDB)
         {
             uint32 LasRewardPerHour = 0;
 
@@ -217,11 +223,9 @@ public:
             if (result)
                 LasRewardPerHour = result->Fetch()->GetUInt32();
 
-            _LastRewardTimePerHourStore.erase(PlayerGuid);
-            _LastRewardTimePerHourStore[PlayerGuid] = LasRewardPerHour;
+            _LastRewardTimePerTimeStore.erase(PlayerGuid);
+            _LastRewardTimePerTimeStore[PlayerGuid] = LasRewardPerHour;
         }
-        else
-            return;
     }
 
     bool IsRewardedPlayer(uint32 Guid, uint32 RewardSecond)
@@ -237,12 +241,11 @@ public:
         return false;
     }
 
-private:
     IntervalTimer& UpdateTimer = sKargatumConfig->GetUpdateTimerOnlineReward();
 
     typedef std::unordered_map<uint64, std::vector<uint32>> LastRewardTimeContainer;
     typedef std::unordered_map<uint64, uint32> LastRewardTimePerHourContainer;
-    LastRewardTimePerHourContainer _LastRewardTimePerHourStore;
+    LastRewardTimePerHourContainer _LastRewardTimePerTimeStore;
     LastRewardTimeContainer _lastrewardtimestore;
 };
 
