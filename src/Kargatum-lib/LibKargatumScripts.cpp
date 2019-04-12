@@ -7,6 +7,7 @@
 #include "LibKargatumScripts.h"
 #include "DatabaseEnv.h"
 #include "Player.h"
+#include "Log.h"
 
 KargatumScript* KargatumScript::instance()
 {
@@ -57,7 +58,7 @@ void KargatumScript::SendMoreItemsMail(Player* player, std::string Subject, std:
 {
     if (ListItemPairs.size() > MAX_MAIL_ITEMS)
     {
-        LOG_ERROR("> KargatumScript::SendMoreItemsMail: ListItemPairs.size() = %u", (uint32)ListItemPairs.size());
+        sLog->outError("> KargatumScript::SendMoreItemsMail: ListItemPairs.size() = %u", (uint32)ListItemPairs.size());
         return;
     }
 
@@ -86,7 +87,7 @@ void KargatumScript::SendMoreItemsMail(Player* player, std::string Subject, std:
 
         if (_listItemPairs.size() > MAX_MAIL_ITEMS)
         {
-            LOG_ERROR("> KargatumScript::SendMoreItemsMail: _listItemPairs.size() = %u", (uint32)_listItemPairs.size());
+            sLog->outError("> KargatumScript::SendMoreItemsMail: _listItemPairs.size() = %u", (uint32)_listItemPairs.size());
             break;
         }
     }

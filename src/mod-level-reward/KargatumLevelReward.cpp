@@ -71,7 +71,7 @@ private:
 #ifdef KARGATUM_RUS_LANG
         Subject = sKargatumScript->GetFormatString("Награда за повышение уровня до %u", Level);
         Text = sKargatumScript->GetFormatString("Вы повысили свой уровень до %u и получаете за это награду!", Level);
-        SelfMessage = sKargatumScript->GetFormatString("Вы повысили уровень до % u и получаете награду!", Level);
+        SelfMessage = sKargatumScript->GetFormatString("Вы повысили уровень до %u и получаете награду!", Level);
 #else
         Subject = sKargatumScript->GetFormatString("Reward for level up to %u", Level);
         Text = sKargatumScript->GetFormatString("You increased level to %u and get a reward!", Level);

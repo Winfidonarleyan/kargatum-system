@@ -33,10 +33,10 @@ public:
 
         if (player->GetSession()->GetSecurity() == SEC_DEVELOPER)
             Message = CONF_STR(conf::GM_CHAT_COLOR_LEVEL_5) + Message;
-#endif
+
         if (player->GetSession()->GetSecurity() == 4)
             Message = CONF_STR(conf::GM_CHAT_COLOR_LEVEL_4) + Message;
-
+#endif
         if (player->GetSession()->GetSecurity() == 3)
             Message = CONF_STR(conf::GM_CHAT_COLOR_LEVEL_3) + Message;
 
