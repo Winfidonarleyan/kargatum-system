@@ -3,6 +3,4 @@
 # Licence MIT https://opensource.org/MIT
 #
 
-if (KARGATUM_RUS_LANG)
-  add_definitions(-DKARGATUM_RUS_LANG)
-endif()
+option(KARGATUM_RUS_LANG     "Включить русский язык в kargatum-system"   1)

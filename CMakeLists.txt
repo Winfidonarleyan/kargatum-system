@@ -9,6 +9,9 @@ set(KARGATUM_SC_DIR     "${CMAKE_CURRENT_LIST_DIR}/src")
 set(KARGATUM_CONF_DIR   "${CMAKE_CURRENT_LIST_DIR}/conf")
 set(KARGATUM_CMAKE_DIR  "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
+# Load configuration
+CU_ADD_HOOK(AFTER_LOAD_CONF "${KARGATUM_CMAKE_DIR}/Configuration.cmake")
+
 # Loading system
 CU_ADD_HOOK(AFTER_LOAD_CMAKE_MODULES "${KARGATUM_CMAKE_DIR}/LoadSystem.cmake")
 
@@ -53,3 +56,9 @@ elseif(NOT KARGATUMCORE AND NOT KARGATUM_RUS_LANG)
 endif()
 
 message("-> Loaded custom scripts")
+
+if (KARGATUM_RUS_LANG)
+  message("-> Язык системы - Русский")
+else()
+  message("-> System language - English")
+endif()
