@@ -214,31 +214,31 @@ NotCanSpeak.Msg.Enable = 1
 #	mod-online-reward
 #
 #    Online.Reward.Enable
-#        Description: Enable online reward.
+#        Description: Include the entire online rewards module
 #        Default: 1
 #
 #    Online.Reward.Per.Online.Enable
-#        Description: Enable reward type per online.
+#        Description: Enable Type 1 (awards for general online on the server).
 #        Default: 1
 #
 #    Online.Reward.Per.Time.Enable
-#        Description: Enable reward type per time.
+#        Description: Type 2 (periodic awards for periods of time).
 #        Default: 1
 #
 #    Online.Reward.Per.Time.Time
-#        Description: Interval time for reward type per time. In seconds
+#        Description: The period of time after which the award will be given (type 2). In seconds
 #        Default: 3600 (1 hour)
 #
 #    Online.Reward.Per.Time.ItemID
-#        Description: Reward itemid for reward type per time.
-#        Default: 47241
+#        Description: The item to be given out during the periodic issue. (Type 2)
+#        Default: 47241 (The emblem of triumph)
 #
 #    Online.Reward.Per.Time.Item.Count
-#        Description: Reward item count for reward type per time.
+#        Description: Reward item count for reward type per time. (Type 2)
 #        Default: 1
 #
 #    Online.Reward.Check.Time
-#        Description: Time, for check reward in seconds.
+#        Description: The time after which the module performs the verification to determine the awarding of awards in both types (number in seconds)
 #        Default: 60 (1 minute)
 #
 
