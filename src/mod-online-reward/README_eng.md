@@ -9,6 +9,8 @@
 
 ### Description:
 Reward players for online
+- Type 1 One-time awards to players when a certain amount of time has been played (total number in skunks). Awards are indicated in the database. `world`.`online_reward`
+- Type 2 Periodic (cyclic) reward for the player's presence in the game (the number determines the periodicity with which the awards will be given - in seconds)
 
 ### Configuration:
 ```ini
@@ -16,31 +18,41 @@ Reward players for online
 #	mod-online-reward
 #
 #    Online.Reward.Enable
-#        Description: Enable online reward.
+#        Description: Include the entire online rewards module
 #        Default: 1
 #
-#    Online.Reward.Type
-#        Description: Reward online type. 1 - Default (playing second), 2 - per hour.
+#    Online.Reward.Per.Online.Enable
+#        Description: Enable Type 1 (awards for general online on the server).
 #        Default: 1
 #
-#    Online.Reward.Type.Per.Hour.ItemID
-#        Description: Reward item number at type # 2.
-#        Default: 40265
-#
-#    Online.Reward.Type.Per.Hour.Item.Count
-#        Description: Reward item count at type # 2.
+#    Online.Reward.Per.Time.Enable
+#        Description: Type 2 (periodic awards for periods of time).
 #        Default: 1
 #
-#    Online.Reward.Time.Check
-#        Description: Time check for system.
-#        Default: 10
+#    Online.Reward.Per.Time.Time
+#        Description: The period of time after which the award will be given (type 2). In seconds
+#        Default: 3600 (1 hour)
+#
+#    Online.Reward.Per.Time.ItemID
+#        Description: The item to be given out during the periodic issue. (Type 2)
+#        Default: 47241 (The emblem of triumph)
+#
+#    Online.Reward.Per.Time.Item.Count
+#        Description: Reward item count for reward type per time. (Type 2)
+#        Default: 1
+#
+#    Online.Reward.Check.Time
+#        Description: The time after which the module performs the verification to determine the awarding of awards in both types (number in seconds)
+#        Default: 60 (1 minute)
 #
 
 Online.Reward.Enable = 1
-Online.Reward.Type = 1
-Online.Reward.Type.Per.Hour.ItemID = 40265
-Online.Reward.Type.Per.Hour.Item.Count = 1
-Online.Reward.Time.Check = 10
+Online.Reward.Per.Online.Enable = 1
+Online.Reward.Per.Time.Enable = 1
+Online.Reward.Per.Time.Time = 3600
+Online.Reward.Per.Time.ItemID = 47241
+Online.Reward.Per.Time.Item.Count = 1
+Online.Reward.Check.Time = 60
 ###################################################################################################
 ```
 
