@@ -134,7 +134,7 @@ BG.Reward.LoserTeam.Count = 1
 #	mod-buff-command
 #
 #    Buff.Command.Enable
-#        Описание: Включить команду .buff.
+#        Описание: Включить возможность использования команды .buff.
 #        По умолчанию: 1
 #
 

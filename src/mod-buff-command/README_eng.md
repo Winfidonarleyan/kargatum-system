@@ -9,6 +9,7 @@
 
 ### Description:
 Add custom command .buff for self buff
+With this command, all the rip-offs specified in the table are applied to the character `world`.`player_buff`
 
 ### Configuration:
 ```ini
@@ -16,7 +17,7 @@ Add custom command .buff for self buff
 #	mod-buff-command
 #
 #    Buff.Command.Enable
-#        Description: Enable command .buff.
+#        Description: Enable the ability to use the command .buff.
 #        Default: 1
 #
 
