@@ -65,7 +65,7 @@ private:
         ChatHandler handler(player->GetSession());
         std::string Subject, Text, SelfMessage;
 
-        KargatumMailListItemPairs ListItemPairs;
+        KargatumMailVector ListItemPairs;
         ListItemPairs.push_back(KargatumMailItemPair(levelReward->ItemID, levelReward->ItemCount));        
 
 #ifdef KARGATUM_RUS_LANG

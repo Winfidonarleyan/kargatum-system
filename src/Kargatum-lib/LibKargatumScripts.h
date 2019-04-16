@@ -11,7 +11,7 @@
 #include "Player.h"
 
 typedef std::pair<uint32, uint32> KargatumMailItemPair;
-typedef std::list<KargatumMailItemPair> KargatumMailListItemPairs;
+typedef std::vector<KargatumMailItemPair> KargatumMailVector;
 
 class KargatumScript
 {
@@ -22,7 +22,7 @@ public:
     std::string GetFormatString(const char* format, ...) ATTR_PRINTF(2, 3);
 
     void SendMailPlayer(Player* player, std::string Subject, std::string Text, uint32 ItemEntry, uint32 ItemCount);
-    void SendMoreItemsMail(Player* player, std::string Subject, std::string Text, uint32 Money, KargatumMailListItemPairs& ListItemPairs);
+    void SendMoreItemsMail(Player* player, std::string Subject, std::string Text, uint32 Money, KargatumMailVector ListItemPairs);
 };
 
 #define sKargatumScript KargatumScript::instance()

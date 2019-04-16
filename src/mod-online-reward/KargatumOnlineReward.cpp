@@ -98,7 +98,7 @@ private:
                 std::string Subject, Text, SelfMessage;
                 std::string PlayedTimeSecStr = secsToTimeString(Seconds);
 
-                KargatumMailListItemPairs ListItemPairs;
+                KargatumMailVector ListItemPairs;
                 ListItemPairs.push_back(KargatumMailItemPair(ItemID, Count));
 
 #ifdef KARGATUM_RUS_LANG
@@ -139,7 +139,7 @@ private:
                 std::string Subject, Text, SelfMessage;
                 std::string PlayedTimeSecStr = secsToTimeString(DiffTime);
 
-                KargatumMailListItemPairs ListItemPairs;
+                KargatumMailVector ListItemPairs;
                 ListItemPairs.push_back(KargatumMailItemPair(ItemID, Count));
 
 #ifdef KARGATUM_RUS_LANG

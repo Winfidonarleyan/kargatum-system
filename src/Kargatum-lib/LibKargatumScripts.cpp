@@ -54,7 +54,7 @@ void KargatumScript::SendMailPlayer(Player* player, std::string Subject, std::st
     CharacterDatabase.CommitTransaction(trans);
 }
 
-void KargatumScript::SendMoreItemsMail(Player* player, std::string Subject, std::string Text, uint32 Money, KargatumMailListItemPairs& ListItemPairs)
+void KargatumScript::SendMoreItemsMail(Player* player, std::string Subject, std::string Text, uint32 Money, KargatumMailVector ListItemPairs)
 {
     if (ListItemPairs.size() > MAX_MAIL_ITEMS)
     {
@@ -62,7 +62,7 @@ void KargatumScript::SendMoreItemsMail(Player* player, std::string Subject, std:
         return;
     }
 
-    KargatumMailListItemPairs _listItemPairs;
+    KargatumMailVector _listItemPairs;
 
     // check
     for (auto itr : ListItemPairs)
@@ -75,9 +75,9 @@ void KargatumScript::SendMoreItemsMail(Player* player, std::string Subject, std:
             continue;
 
         if (ItemCount < 1 || (item->MaxCount > 0 && ItemCount > uint32(item->MaxCount)))
-            continue;
+            break;
 
-        while (itr.second > item->GetMaxStackSize())
+        while (ItemCount > item->GetMaxStackSize())
         {
             _listItemPairs.push_back(KargatumMailItemPair(ItemID, item->GetMaxStackSize()));
             ItemCount -= item->GetMaxStackSize();
