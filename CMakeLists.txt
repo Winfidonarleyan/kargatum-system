@@ -3,6 +3,9 @@
 # Licence MIT https://opensource.org/MIT
 #
 
+# Set global dir
+CU_SET_PATH("KARGATUM_SYSTEM_DIR" "${CMAKE_CURRENT_LIST_DIR}")
+
 # Set dir
 set(KARGATUM_LIB_DIR    "${CMAKE_CURRENT_LIST_DIR}/src/Kargatum-lib")
 set(KARGATUM_SC_DIR     "${CMAKE_CURRENT_LIST_DIR}/src")
@@ -14,6 +17,9 @@ CU_ADD_HOOK(AFTER_LOAD_CONF "${KARGATUM_CMAKE_DIR}/Configuration.cmake")
 
 # Loading system
 CU_ADD_HOOK(AFTER_LOAD_CMAKE_MODULES "${KARGATUM_CMAKE_DIR}/LoadSystem.cmake")
+
+# Add includes in game lib
+CU_ADD_HOOK(AFTER_GAME_LIBRARY "${KARGATUM_CMAKE_DIR}/TargetInclude.cmake")
 
 message("-> Loading Kargatum System")
 
@@ -61,4 +67,12 @@ if (KARGATUM_RUS_LANG)
   message("-> Язык системы - Русский")
 else()
   message("-> System language - English")
+endif()
+
+if(KARGATUM_CFBG)
+  if (NOT KARGATUMCORE)
+    AC_ADD_SCRIPT("${KARGATUM_SC_DIR}/mod-spell-duration/KargatumCFBG.cpp")
+    AC_ADD_SCRIPT("${KARGATUM_SC_DIR}/mod-spell-duration/KargatumCFBG.h")
+  endif()
+  message("-> Loaded CFBG")
 endif()

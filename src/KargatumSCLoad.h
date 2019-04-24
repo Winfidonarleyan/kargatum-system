@@ -23,6 +23,7 @@ void AddSC_Kargatum_PlayerNotSpeak();
 void AddSC_Kargatum_OnlineReward();
 void AddSC_Kargatum_PlayerLoginInfo();
 void AddSC_Kargatum_SpellDuration();
+void AddSC_Kargatum_CFBG();
 
 // Add all
 void AddKargatumScripts()
@@ -44,6 +45,10 @@ void AddKargatumScripts()
     AddSC_Kargatum_OnlineReward();
     AddSC_Kargatum_PlayerLoginInfo();
     AddSC_Kargatum_SpellDuration();
+
+#ifdef KARGATUM_CFBG
+    AddSC_Kargatum_CFBG();
+#endif
 }
 
 #endif /* _KARGATUM_SCRIPTS_LOADER_H_ */

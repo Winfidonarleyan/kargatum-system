@@ -1,7 +1,7 @@
 !.gitignore
 
 #
-#Generic
+# Generic
 #
 
 .directory
@@ -24,9 +24,14 @@ CMakeLists.txt.user
 #
 # IDE & other softwares
 #
+
 /.settings/
 /.externalToolBuilders/*
-# exclude in all levels
+
+#
+# Exclude in all levels
+#
+
 nbproject/
 .sync.ffs_db
 *.kate-swp
@@ -34,6 +39,7 @@ nbproject/
 #
 # Eclipse
 #
+
 *.pydevproject
 .metadata
 .gradle
@@ -46,3 +52,6 @@ local.properties
 .loadpath
 .project
 .cproject
+
+# Private modules
+/src/mod-cfbg/*

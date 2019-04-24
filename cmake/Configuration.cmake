@@ -4,3 +4,7 @@
 #
 
 option(KARGATUM_RUS_LANG     "Включить русский язык в kargatum-system"   1)
+
+if(EXISTS "${KARGATUM_SYSTEM_DIR}/src/mod-cfbg/KargatumCFBG.cpp")
+  option(KARGATUM_CFBG     "Enable/disable CFBG"   1)
+endif()

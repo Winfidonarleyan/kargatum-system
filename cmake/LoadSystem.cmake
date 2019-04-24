@@ -6,3 +6,7 @@
 if (KARGATUM_RUS_LANG)
   add_definitions(-DKARGATUM_RUS_LANG)
 endif()
+
+if (KARGATUM_CFBG)
+  add_definitions(-DKARGATUM_CFBG)
+endif()
