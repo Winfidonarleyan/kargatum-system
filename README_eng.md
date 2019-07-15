@@ -15,7 +15,7 @@
 git clone https://github.com/Winfidonarleyan/kargatum-system
 ```
 2. Download the repository manually and place the folder `kargatum-system-master` in folder `modules` in you core
-3. Change system language [Change language](#выбор-языка-в-системе)
+3. Change system language [Change language](#change-language-in-system)
 4. **Do you have a question? Welcome in Discord channel - [Discord channel for system](https://discord.gg/xCwPqdq)**
 
 ## Public modules
