@@ -42,5 +42,5 @@ If you want to install english language
 
 ## Links
 - Author - [Winfidonarleyan](https://github.com/Winfidonarleyan)
-- [Discord channel for system](https://discord.gg/xCwPqdq)
+- [Discord channel for system](https://discord.gg/EakzBBB)
 - [Discord channel for AzerothCore](https://discord.gg/PaqQRkd)
