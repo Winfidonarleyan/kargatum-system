@@ -42,5 +42,5 @@ git clone https://github.com/Winfidonarleyan/kargatum-system
 
 ## Ссылки
 - Автор - [Winfidonarleyan](https://github.com/Winfidonarleyan)
-- [Дискорд канал системы](https://discord.gg/xCwPqdq)
-- [Дискорд канал AzerothCore](https://discord.gg/PaqQRkd)
+- [Дискорд канал системы](https://discord.gg/EakzBBB)
+- [Дискорд канал AzerothCore](https://discord.gg/PaqQRkd
